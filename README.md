@@ -1,4 +1,4 @@
 # catch-up-app
-Minimum Android SDK: 29 (Android 10)
+Minimum SDK: API 29 (Q; Android 10.0)
 
 > Ensure you switch to `development` branch during building
