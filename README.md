@@ -1,2 +1,2 @@
 # catch-up-app
-CSE3MAD Project
+Minimum Android SDK: 29 (Android 10)
