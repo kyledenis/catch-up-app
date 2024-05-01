@@ -4,7 +4,7 @@
 /local.properties
 
 # Build generated files
-/build
+/build/
 /captures
 .externalNativeBuild
 .cxx
@@ -15,6 +15,7 @@
 *.iml
 local.properties
 *.log
+*.tmp
 *.jks
 *.keystore
 google-services.json
