@@ -13,6 +13,7 @@
 .gradle/
 .idea/
 *.iml
+gradle-wrapper.properties
 local.properties
 *.log
 *.tmp
