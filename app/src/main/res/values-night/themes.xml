@@ -1,16 +1,19 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="Theme.Catchup" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+    <style name="Base.Theme.Catchup" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary dark theme. -->
+        <item name="background">@color/catchup_background</item>
+        <item name="colorPrimary">@color/catchup_navbar_background</item>
+        <item name="colorPrimaryVariant">@color/catchup_grey_dark</item>
+        <item name="colorPrimarySurface">@color/catchup_grey_light</item>
+
+        <!-- Secondary dark theme. -->
+        <item name="colorSecondary">@color/catchup_primary</item>
+
+        <!-- Tertiary dark theme. -->
+        <item name="colorTertiary">@color/catchup_featured</item>
+
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <item name="android:statusBarColor">?attr/background</item>
     </style>
 </resources>
