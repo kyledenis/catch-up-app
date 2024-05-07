@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Base.Theme.Catchup" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        
+        <item name="background">@color/catchup_background</item>
+        <item name="colorPrimary">@color/catchup_navbar_background</item>
+        <item name="colorPrimaryVariant">@color/catchup_grey_dark</item>
+        <item name="colorPrimarySurface">@color/catchup_grey_light</item>
+
+        
+        <item name="colorSecondary">@color/catchup_primary</item>
+
+        
+        <item name="colorTertiary">@color/catchup_featured</item>
+
+        
+        <item name="android:statusBarColor">?attr/background</item>
+    </style>
+</resources>

@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "com.example.catch_up.app-mergeDebugResources-30:/layout/fragment_explore.xml",
+        "source": "com.example.catch_up.app-main-33:/layout/fragment_explore.xml"
+    },
+    {
+        "merged": "com.example.catch_up.app-mergeDebugResources-30:/layout/fragment_play.xml",
+        "source": "com.example.catch_up.app-main-33:/layout/fragment_play.xml"
+    },
+    {
+        "merged": "com.example.catch_up.app-mergeDebugResources-30:/layout/fragment_saved.xml",
+        "source": "com.example.catch_up.app-main-33:/layout/fragment_saved.xml"
+    },
+    {
+        "merged": "com.example.catch_up.app-mergeDebugResources-30:/layout/activity_main.xml",
+        "source": "com.example.catch_up.app-main-33:/layout/activity_main.xml"
+    }
+]

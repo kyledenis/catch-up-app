@@ -15,6 +15,7 @@
 *.iml
 gradle-wrapper.properties
 local.properties
+secrets.properties
 *.log
 *.tmp
 *.jks

@@ -1,0 +1,10 @@
+#Tue May 07 19:39:58 AEST 2024
+base.0=/Users/maxfricker/LaTrobe/2024 S1/CSE3MAD/Assignment/local_repo/app/build/intermediates/dex/debugAndroidTest/mergeExtDexDebugAndroidTest/classes.dex
+base.1=/Users/maxfricker/LaTrobe/2024 S1/CSE3MAD/Assignment/local_repo/app/build/intermediates/dex/debugAndroidTest/mergeProjectDexDebugAndroidTest/0/classes.dex
+base.2=/Users/maxfricker/LaTrobe/2024 S1/CSE3MAD/Assignment/local_repo/app/build/intermediates/dex/debugAndroidTest/mergeProjectDexDebugAndroidTest/13/classes.dex
+path.0=classes.dex
+path.1=0/classes.dex
+path.2=13/classes.dex
+renamed.0=classes.dex
+renamed.1=classes2.dex
+renamed.2=classes3.dex
