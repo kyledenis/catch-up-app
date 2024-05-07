@@ -2,6 +2,7 @@
 # General
 .DS_Store
 /local.properties
+/secrets.properties
 
 # Build generated files
 /build/
