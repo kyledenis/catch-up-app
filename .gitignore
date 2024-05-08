@@ -6,12 +6,15 @@
 
 # Build generated files
 /build/
+/intermediates
 /captures
+
 .externalNativeBuild
 .cxx
 
 # Gradle and Android Studio specific files
 .gradle/
+build/
 .idea/
 *.iml
 gradle-wrapper.properties
