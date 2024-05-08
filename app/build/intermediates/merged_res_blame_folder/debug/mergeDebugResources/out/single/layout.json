@@ -1,18 +1,22 @@
 [
     {
+        "merged": "/Users/maxfricker/.gradle/daemon/8.4/com.example.catch_up.app-mergeDebugResources-33:/layout/fragment_explore.xml",
+        "source": "/Users/maxfricker/.gradle/daemon/8.4/com.example.catch_up.app-main-36:/layout/fragment_explore.xml"
+    },
+    {
+        "merged": "/Users/maxfricker/.gradle/daemon/8.4/com.example.catch_up.app-mergeDebugResources-33:/layout/activity_main.xml",
+        "source": "/Users/maxfricker/.gradle/daemon/8.4/com.example.catch_up.app-main-36:/layout/activity_main.xml"
+    },
+    {
         "merged": "com.example.catch_up.app-mergeDebugResources-33:/layout/fragment_explore.xml",
         "source": "com.example.catch_up.app-main-36:/layout/fragment_explore.xml"
     },
     {
-        "merged": "com.example.catch_up.app-mergeDebugResources-33:/layout/fragment_saved.xml",
-        "source": "com.example.catch_up.app-main-36:/layout/fragment_saved.xml"
+        "merged": "/Users/maxfricker/.gradle/daemon/8.4/com.example.catch_up.app-mergeDebugResources-33:/layout/fragment_saved.xml",
+        "source": "/Users/maxfricker/.gradle/daemon/8.4/com.example.catch_up.app-main-36:/layout/fragment_saved.xml"
     },
     {
-        "merged": "com.example.catch_up.app-mergeDebugResources-33:/layout/activity_main.xml",
-        "source": "com.example.catch_up.app-main-36:/layout/activity_main.xml"
-    },
-    {
-        "merged": "com.example.catch_up.app-mergeDebugResources-33:/layout/fragment_play.xml",
-        "source": "com.example.catch_up.app-main-36:/layout/fragment_play.xml"
+        "merged": "/Users/maxfricker/.gradle/daemon/8.4/com.example.catch_up.app-mergeDebugResources-33:/layout/fragment_play.xml",
+        "source": "/Users/maxfricker/.gradle/daemon/8.4/com.example.catch_up.app-main-36:/layout/fragment_play.xml"
     }
 ]

@@ -16,6 +16,9 @@ import android.Manifest;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.activity.result.ActivityResultLauncher;
 
+// TODO:
+// - Implement permission checks where necessary
+
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
 
@@ -26,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
    // Location permissions may not be needed in every use case
-    final String[] EXPLORE_PERMISSIONS = {
+    final String[] LOCATION_PERMISSIONS = {
           Manifest.permission.ACCESS_COARSE_LOCATION,
           Manifest.permission.ACCESS_FINE_LOCATION
     };
@@ -86,11 +89,14 @@ public class MainActivity extends AppCompatActivity {
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.explore) {
-                replaceFragment(new ExploreFragment());
+               Log.d(TAG, "Explore selected");
+               replaceFragment(new ExploreFragment());
             } else if (item.getItemId() == R.id.play) {
-                replaceFragment(new PlayFragment());
+               Log.d(TAG, "Play selected");
+               replaceFragment(new PlayFragment());
             } else if (item.getItemId() == R.id.saved) {
-                replaceFragment(new SavedFragment());
+               Log.d(TAG, "Saved selected");
+               replaceFragment(new SavedFragment());
             }
             return true;
         });
