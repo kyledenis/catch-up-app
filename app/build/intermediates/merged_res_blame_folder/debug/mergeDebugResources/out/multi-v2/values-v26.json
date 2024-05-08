@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.catch_up.app-mergeDebugResources-29:/values-v26/values-v26.xml",
+            "outputFile": "com.example.catch_up.app-mergeDebugResources-32:/values-v26/values-v26.xml",
             "map": [
                 {
-                    "source": "/Users/maxfricker/.gradle/caches/transforms-3/94214deefecc180b245d1a200d8b6538/transformed/appcompat-1.6.1/res/values-v26/values-v26.xml",
+                    "source": "/Users/maxfricker/.gradle/caches/transforms-3/6c3533cc53728c0373a1c48e4277f522/transformed/appcompat-1.6.1/res/values-v26/values-v26.xml",
                     "from": {
                         "startLines": "2,3,4,8,12,16",
                         "startColumns": "4,4,4,4,4,4",

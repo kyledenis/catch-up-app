@@ -25,6 +25,7 @@ id bottom_navigation_view
 id explore
 id fab
 id frame_layout
+id google_map
 id play
 id saved
 layout activity_main
