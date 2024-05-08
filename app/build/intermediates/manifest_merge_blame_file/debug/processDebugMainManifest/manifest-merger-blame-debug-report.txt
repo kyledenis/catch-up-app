@@ -20,23 +20,23 @@
 14
 15    <!-- Include required permissions for Google Maps API to run. -->
 16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-16-->[com.google.android.gms:play-services-maps:18.0.0] /Users/maxfricker/.gradle/caches/transforms-3/3e6ad34fd912e79d34d97d5abdd70e1a/transformed/play-services-maps-18.0.0/AndroidManifest.xml:23:5-79
-16-->[com.google.android.gms:play-services-maps:18.0.0] /Users/maxfricker/.gradle/caches/transforms-3/3e6ad34fd912e79d34d97d5abdd70e1a/transformed/play-services-maps-18.0.0/AndroidManifest.xml:23:22-76
+16-->[com.google.android.gms:play-services-maps:18.2.0] /Users/maxfricker/.gradle/caches/transforms-3/a6ac03a7d5d41af18bbe389b372a4dfa/transformed/play-services-maps-18.2.0/AndroidManifest.xml:23:5-79
+16-->[com.google.android.gms:play-services-maps:18.2.0] /Users/maxfricker/.gradle/caches/transforms-3/a6ac03a7d5d41af18bbe389b372a4dfa/transformed/play-services-maps-18.2.0/AndroidManifest.xml:23:22-76
 17
 18    <uses-feature
-18-->[com.google.android.gms:play-services-maps:18.0.0] /Users/maxfricker/.gradle/caches/transforms-3/3e6ad34fd912e79d34d97d5abdd70e1a/transformed/play-services-maps-18.0.0/AndroidManifest.xml:26:5-28:35
+18-->[com.google.android.gms:play-services-maps:18.2.0] /Users/maxfricker/.gradle/caches/transforms-3/a6ac03a7d5d41af18bbe389b372a4dfa/transformed/play-services-maps-18.2.0/AndroidManifest.xml:26:5-28:35
 19        android:glEsVersion="0x00020000"
-19-->[com.google.android.gms:play-services-maps:18.0.0] /Users/maxfricker/.gradle/caches/transforms-3/3e6ad34fd912e79d34d97d5abdd70e1a/transformed/play-services-maps-18.0.0/AndroidManifest.xml:27:9-41
+19-->[com.google.android.gms:play-services-maps:18.2.0] /Users/maxfricker/.gradle/caches/transforms-3/a6ac03a7d5d41af18bbe389b372a4dfa/transformed/play-services-maps-18.2.0/AndroidManifest.xml:27:9-41
 20        android:required="true" />
-20-->[com.google.android.gms:play-services-maps:18.0.0] /Users/maxfricker/.gradle/caches/transforms-3/3e6ad34fd912e79d34d97d5abdd70e1a/transformed/play-services-maps-18.0.0/AndroidManifest.xml:28:9-32
+20-->[com.google.android.gms:play-services-maps:18.2.0] /Users/maxfricker/.gradle/caches/transforms-3/a6ac03a7d5d41af18bbe389b372a4dfa/transformed/play-services-maps-18.2.0/AndroidManifest.xml:28:9-32
 21
 22    <queries>
-22-->[com.google.android.gms:play-services-maps:18.0.0] /Users/maxfricker/.gradle/caches/transforms-3/3e6ad34fd912e79d34d97d5abdd70e1a/transformed/play-services-maps-18.0.0/AndroidManifest.xml:30:5-34:15
+22-->[com.google.android.gms:play-services-maps:18.2.0] /Users/maxfricker/.gradle/caches/transforms-3/a6ac03a7d5d41af18bbe389b372a4dfa/transformed/play-services-maps-18.2.0/AndroidManifest.xml:30:5-34:15
 23
 24        <!-- Needs to be explicitly declared on Android R+ -->
 25        <package android:name="com.google.android.apps.maps" />
-25-->[com.google.android.gms:play-services-maps:18.0.0] /Users/maxfricker/.gradle/caches/transforms-3/3e6ad34fd912e79d34d97d5abdd70e1a/transformed/play-services-maps-18.0.0/AndroidManifest.xml:33:9-64
-25-->[com.google.android.gms:play-services-maps:18.0.0] /Users/maxfricker/.gradle/caches/transforms-3/3e6ad34fd912e79d34d97d5abdd70e1a/transformed/play-services-maps-18.0.0/AndroidManifest.xml:33:18-61
+25-->[com.google.android.gms:play-services-maps:18.2.0] /Users/maxfricker/.gradle/caches/transforms-3/a6ac03a7d5d41af18bbe389b372a4dfa/transformed/play-services-maps-18.2.0/AndroidManifest.xml:33:9-64
+25-->[com.google.android.gms:play-services-maps:18.2.0] /Users/maxfricker/.gradle/caches/transforms-3/a6ac03a7d5d41af18bbe389b372a4dfa/transformed/play-services-maps-18.2.0/AndroidManifest.xml:33:18-61
 26    </queries>
 27
 28    <permission
@@ -98,27 +98,27 @@
 59        </activity>
 60        <!-- Needs to be explicitly declared on P+ -->
 61        <uses-library
-61-->[com.google.android.gms:play-services-maps:18.0.0] /Users/maxfricker/.gradle/caches/transforms-3/3e6ad34fd912e79d34d97d5abdd70e1a/transformed/play-services-maps-18.0.0/AndroidManifest.xml:39:9-41:40
+61-->[com.google.android.gms:play-services-maps:18.2.0] /Users/maxfricker/.gradle/caches/transforms-3/a6ac03a7d5d41af18bbe389b372a4dfa/transformed/play-services-maps-18.2.0/AndroidManifest.xml:39:9-41:40
 62            android:name="org.apache.http.legacy"
-62-->[com.google.android.gms:play-services-maps:18.0.0] /Users/maxfricker/.gradle/caches/transforms-3/3e6ad34fd912e79d34d97d5abdd70e1a/transformed/play-services-maps-18.0.0/AndroidManifest.xml:40:13-50
+62-->[com.google.android.gms:play-services-maps:18.2.0] /Users/maxfricker/.gradle/caches/transforms-3/a6ac03a7d5d41af18bbe389b372a4dfa/transformed/play-services-maps-18.2.0/AndroidManifest.xml:40:13-50
 63            android:required="false" />
-63-->[com.google.android.gms:play-services-maps:18.0.0] /Users/maxfricker/.gradle/caches/transforms-3/3e6ad34fd912e79d34d97d5abdd70e1a/transformed/play-services-maps-18.0.0/AndroidManifest.xml:41:13-37
+63-->[com.google.android.gms:play-services-maps:18.2.0] /Users/maxfricker/.gradle/caches/transforms-3/a6ac03a7d5d41af18bbe389b372a4dfa/transformed/play-services-maps-18.2.0/AndroidManifest.xml:41:13-37
 64
 65        <activity
-65-->[com.google.android.gms:play-services-base:17.0.0] /Users/maxfricker/.gradle/caches/transforms-3/72fd7ec1553d9be042ba50846c81c649/transformed/play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+65-->[com.google.android.gms:play-services-base:18.0.1] /Users/maxfricker/.gradle/caches/transforms-3/b8c0e261626d7ea3b49958a9a3aac64e/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
 66            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-66-->[com.google.android.gms:play-services-base:17.0.0] /Users/maxfricker/.gradle/caches/transforms-3/72fd7ec1553d9be042ba50846c81c649/transformed/play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+66-->[com.google.android.gms:play-services-base:18.0.1] /Users/maxfricker/.gradle/caches/transforms-3/b8c0e261626d7ea3b49958a9a3aac64e/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:19-85
 67            android:exported="false"
-67-->[com.google.android.gms:play-services-base:17.0.0] /Users/maxfricker/.gradle/caches/transforms-3/72fd7ec1553d9be042ba50846c81c649/transformed/play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+67-->[com.google.android.gms:play-services-base:18.0.1] /Users/maxfricker/.gradle/caches/transforms-3/b8c0e261626d7ea3b49958a9a3aac64e/transformed/play-services-base-18.0.1/AndroidManifest.xml:22:19-43
 68            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-68-->[com.google.android.gms:play-services-base:17.0.0] /Users/maxfricker/.gradle/caches/transforms-3/72fd7ec1553d9be042ba50846c81c649/transformed/play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+68-->[com.google.android.gms:play-services-base:18.0.1] /Users/maxfricker/.gradle/caches/transforms-3/b8c0e261626d7ea3b49958a9a3aac64e/transformed/play-services-base-18.0.1/AndroidManifest.xml:21:19-78
 69
 70        <meta-data
-70-->[com.google.android.gms:play-services-basement:17.0.0] /Users/maxfricker/.gradle/caches/transforms-3/56f16999ab1b77a9b7b7f38ae969682a/transformed/play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+70-->[com.google.android.gms:play-services-basement:18.0.0] /Users/maxfricker/.gradle/caches/transforms-3/83f9beb3fa3e55e863b7fa99fd1dff2c/transformed/play-services-basement-18.0.0/AndroidManifest.xml:21:9-23:69
 71            android:name="com.google.android.gms.version"
-71-->[com.google.android.gms:play-services-basement:17.0.0] /Users/maxfricker/.gradle/caches/transforms-3/56f16999ab1b77a9b7b7f38ae969682a/transformed/play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+71-->[com.google.android.gms:play-services-basement:18.0.0] /Users/maxfricker/.gradle/caches/transforms-3/83f9beb3fa3e55e863b7fa99fd1dff2c/transformed/play-services-basement-18.0.0/AndroidManifest.xml:22:13-58
 72            android:value="@integer/google_play_services_version" />
-72-->[com.google.android.gms:play-services-basement:17.0.0] /Users/maxfricker/.gradle/caches/transforms-3/56f16999ab1b77a9b7b7f38ae969682a/transformed/play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+72-->[com.google.android.gms:play-services-basement:18.0.0] /Users/maxfricker/.gradle/caches/transforms-3/83f9beb3fa3e55e863b7fa99fd1dff2c/transformed/play-services-basement-18.0.0/AndroidManifest.xml:23:13-66
 73
 74        <provider
 74-->[androidx.emoji2:emoji2:1.2.0] /Users/maxfricker/.gradle/caches/transforms-3/0e579e9bb0ad453026c2bd85fb265fbf/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
