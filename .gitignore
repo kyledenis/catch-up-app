@@ -4,7 +4,7 @@
 .DS_Store
 
 # Build generated files
-/build/
+build/**
 /intermediates/
 /captures/
 /externalNativeBuild/
