@@ -1,6 +1,0 @@
-com.example.catch_up.test.app-core-1.5.0-0 /Users/maxfricker/.gradle/caches/transforms-3/68292e002548a07a8f77dab25aa90871/transformed/core-1.5.0/res
-com.example.catch_up.test.app-annotation-experimental-1.4.0-1 /Users/maxfricker/.gradle/caches/transforms-3/fea224422b8f03e1bd674288c6ddc6d0/transformed/annotation-experimental-1.4.0/res
-com.example.catch_up.test.app-androidTest-2 /Users/maxfricker/LaTrobe/2024 S1/CSE3MAD/Assignment/local_repo/app/build/generated/res/resValues/androidTest/debug
-com.example.catch_up.test.app-mergeDebugAndroidTestResources-3 /Users/maxfricker/LaTrobe/2024 S1/CSE3MAD/Assignment/local_repo/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
-com.example.catch_up.test.app-mergeDebugAndroidTestResources-4 /Users/maxfricker/LaTrobe/2024 S1/CSE3MAD/Assignment/local_repo/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
-com.example.catch_up.test.app-debugAndroidTest-5 /Users/maxfricker/LaTrobe/2024 S1/CSE3MAD/Assignment/local_repo/app/build/intermediates/merged_res/debugAndroidTest/mergeDebugAndroidTestResources
