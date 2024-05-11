@@ -1,3 +1,0 @@
-com.example.catch_up.test
-style WhiteBackgroundDialogTheme
-style WhiteBackgroundTheme
