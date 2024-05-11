@@ -15,20 +15,21 @@ import android.util.Log;
 import android.Manifest;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.activity.result.ActivityResultLauncher;
+import android.content.Context;
 
-// TODO:
-// - Implement permission checks where necessary
+
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
 
-    final String TAG = "main_activity_log";
+    private static final String TAG = "main_activity_log";
+
 
     final String[] BASIC_PERMISSIONS = {
           Manifest.permission.INTERNET,
     };
 
-   // Location permissions may not be needed in every use case
+   /*
     final String[] LOCATION_PERMISSIONS = {
           Manifest.permission.ACCESS_COARSE_LOCATION,
           Manifest.permission.ACCESS_FINE_LOCATION
@@ -44,13 +45,12 @@ public class MainActivity extends AppCompatActivity {
               }
           });
 
-
-    private boolean hasPermissions(String[] permissions)
+    protected static boolean hasPermissions(Context context, String[] permissions)
     {
         boolean permissionStatus = true;
         for (String permission : permissions)
         {
-            if (ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED)
+            if (ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED)
             {
                 Log.d(TAG, "Permission granted: " + permission);
             }
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         {
             Log.d(TAG, "Required permissions already granted");
         }
-    }
+    } */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
