@@ -13,6 +13,7 @@ build/**
 # Gradle files
 .gradle/
 /build/
+app/build/
 
 # IDE - Android Studio
 .idea/
