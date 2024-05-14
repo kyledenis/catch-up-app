@@ -1,7 +1,0 @@
-com.example.catch_up.test.app-androidTest-0 /Users/astrid/AndroidStudioProjects/catch-up-app/app/build/generated/res/resValues/androidTest/debug
-com.example.catch_up.test.app-androidTest-1 /Users/astrid/AndroidStudioProjects/catch-up-app/app/build/generated/res/rs/androidTest/debug
-com.example.catch_up.test.app-mergeDebugAndroidTestResources-2 /Users/astrid/AndroidStudioProjects/catch-up-app/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
-com.example.catch_up.test.app-mergeDebugAndroidTestResources-3 /Users/astrid/AndroidStudioProjects/catch-up-app/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
-com.example.catch_up.test.app-merged_res-4 /Users/astrid/AndroidStudioProjects/catch-up-app/app/build/intermediates/merged_res/debugAndroidTest
-com.example.catch_up.test.app-androidTest-5 /Users/astrid/AndroidStudioProjects/catch-up-app/app/src/androidTest/res
-com.example.catch_up.test.app-androidTestDebug-6 /Users/astrid/AndroidStudioProjects/catch-up-app/app/src/androidTestDebug/res
