@@ -1,0 +1,405 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.catch_up"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="29"
+8-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:5:5-67
+11-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:26:5-79
+12-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:26:22-76
+13    <uses-permission android:name="android.permission.REORDER_TASKS" />
+13-->[androidx.test:core:1.5.0] /Users/astrid/.gradle/caches/transforms-3/a33de611007a55e2ed0a64ae1151cd0f/transformed/jetified-core-1.5.0/AndroidManifest.xml:24:5-72
+13-->[androidx.test:core:1.5.0] /Users/astrid/.gradle/caches/transforms-3/a33de611007a55e2ed0a64ae1151cd0f/transformed/jetified-core-1.5.0/AndroidManifest.xml:24:22-69
+14    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+14-->[com.google.android.recaptcha:recaptcha:18.4.0] /Users/astrid/.gradle/caches/transforms-3/5091c147976749596d9979d5fb94eef5/transformed/jetified-recaptcha-18.4.0/AndroidManifest.xml:9:5-98
+14-->[com.google.android.recaptcha:recaptcha:18.4.0] /Users/astrid/.gradle/caches/transforms-3/5091c147976749596d9979d5fb94eef5/transformed/jetified-recaptcha-18.4.0/AndroidManifest.xml:9:22-95
+15
+16    <permission
+16-->[androidx.core:core:1.13.0] /Users/astrid/.gradle/caches/transforms-3/d563947de90a8d24d41db6f9fd05f7e5/transformed/core-1.13.0/AndroidManifest.xml:22:5-24:47
+17        android:name="com.example.catch_up.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+17-->[androidx.core:core:1.13.0] /Users/astrid/.gradle/caches/transforms-3/d563947de90a8d24d41db6f9fd05f7e5/transformed/core-1.13.0/AndroidManifest.xml:23:9-81
+18        android:protectionLevel="signature" />
+18-->[androidx.core:core:1.13.0] /Users/astrid/.gradle/caches/transforms-3/d563947de90a8d24d41db6f9fd05f7e5/transformed/core-1.13.0/AndroidManifest.xml:24:9-44
+19
+20    <uses-permission android:name="com.example.catch_up.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+20-->[androidx.core:core:1.13.0] /Users/astrid/.gradle/caches/transforms-3/d563947de90a8d24d41db6f9fd05f7e5/transformed/core-1.13.0/AndroidManifest.xml:26:5-97
+20-->[androidx.core:core:1.13.0] /Users/astrid/.gradle/caches/transforms-3/d563947de90a8d24d41db6f9fd05f7e5/transformed/core-1.13.0/AndroidManifest.xml:26:22-94
+21
+22    <application
+22-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:7:5-44:19
+23        android:allowBackup="true"
+23-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:8:9-35
+24        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+24-->[androidx.core:core:1.13.0] /Users/astrid/.gradle/caches/transforms-3/d563947de90a8d24d41db6f9fd05f7e5/transformed/core-1.13.0/AndroidManifest.xml:28:18-86
+25        android:dataExtractionRules="@xml/data_extraction_rules"
+25-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:9:9-65
+26        android:debuggable="true"
+27        android:extractNativeLibs="false"
+28        android:fullBackupContent="@xml/backup_rules"
+28-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:10:9-54
+29        android:icon="@mipmap/ic_launcher"
+29-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:11:9-43
+30        android:label="@string/app_name"
+30-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:12:9-41
+31        android:roundIcon="@mipmap/ic_launcher_round"
+31-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:13:9-54
+32        android:supportsRtl="true"
+32-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:14:9-35
+33        android:testOnly="true"
+34        android:theme="@style/Base.Theme.Catchup" >
+34-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:15:9-50
+35        <activity android:name="com.example.catch_up.SettingsActivity" />
+35-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:17:9-19:16
+35-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:18:13-45
+36        <activity
+36-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:20:9-23:57
+37            android:name="com.example.catch_up.Registration"
+37-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:21:13-41
+38            android:exported="false"
+38-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:22:13-37
+39            android:theme="@style/Base.Theme.Catchup" />
+39-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:23:13-54
+40        <activity
+40-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:24:9-33:20
+41            android:name="com.example.catch_up.Login"
+41-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:25:13-34
+42            android:exported="true"
+42-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:26:13-36
+43            android:theme="@style/Base.Theme.Catchup" >
+43-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:27:13-54
+44            <intent-filter>
+44-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:28:13-32:29
+45                <action android:name="android.intent.action.MAIN" />
+45-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:29:17-69
+45-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:29:25-66
+46
+47                <category android:name="android.intent.category.LAUNCHER" />
+47-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:31:17-77
+47-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:31:27-74
+48            </intent-filter>
+49        </activity>
+50        <activity
+50-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:34:9-38:20
+51            android:name="com.example.catch_up.MainActivity"
+51-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:35:13-41
+52            android:exported="true" >
+52-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:36:13-36
+53        </activity>
+54
+55        <meta-data
+55-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:41:9-43:55
+56            android:name="com.google.android.geo.API_KEY"
+56-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:42:13-58
+57            android:value="@string/google_maps_key" />
+57-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:43:13-52
+58
+59        <activity
+59-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:29:9-46:20
+60            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+60-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:30:13-80
+61            android:excludeFromRecents="true"
+61-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:31:13-46
+62            android:exported="true"
+62-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:32:13-36
+63            android:launchMode="singleTask"
+63-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:33:13-44
+64            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+64-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:34:13-72
+65            <intent-filter>
+65-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:35:13-45:29
+66                <action android:name="android.intent.action.VIEW" />
+66-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:36:17-69
+66-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:36:25-66
+67
+68                <category android:name="android.intent.category.DEFAULT" />
+68-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:38:17-76
+68-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:38:27-73
+69                <category android:name="android.intent.category.BROWSABLE" />
+69-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:39:17-78
+69-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:39:27-75
+70
+71                <data
+71-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:41:17-44:51
+72                    android:host="firebase.auth"
+72-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:42:21-49
+73                    android:path="/"
+73-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:43:21-37
+74                    android:scheme="genericidp" />
+74-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:44:21-48
+75            </intent-filter>
+76        </activity>
+77        <activity
+77-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:47:9-64:20
+78            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+78-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:48:13-79
+79            android:excludeFromRecents="true"
+79-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:49:13-46
+80            android:exported="true"
+80-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:50:13-36
+81            android:launchMode="singleTask"
+81-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:51:13-44
+82            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+82-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:52:13-72
+83            <intent-filter>
+83-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:53:13-63:29
+84                <action android:name="android.intent.action.VIEW" />
+84-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:36:17-69
+84-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:36:25-66
+85
+86                <category android:name="android.intent.category.DEFAULT" />
+86-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:38:17-76
+86-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:38:27-73
+87                <category android:name="android.intent.category.BROWSABLE" />
+87-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:39:17-78
+87-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:39:27-75
+88
+89                <data
+89-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:41:17-44:51
+90                    android:host="firebase.auth"
+90-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:42:21-49
+91                    android:path="/"
+91-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:43:21-37
+92                    android:scheme="recaptcha" />
+92-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:44:21-48
+93            </intent-filter>
+94        </activity>
+95
+96        <service
+96-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:66:9-72:19
+97            android:name="com.google.firebase.components.ComponentDiscoveryService"
+97-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:67:13-84
+98            android:directBootAware="true"
+98-->[com.google.firebase:firebase-common:21.0.0] /Users/astrid/.gradle/caches/transforms-3/e7b40b5a3a0291154ac27a07e304bf43/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:32:13-43
+99            android:exported="false" >
+99-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:68:13-37
+100            <meta-data
+100-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:69:13-71:85
+101                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+101-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:70:17-109
+102                android:value="com.google.firebase.components.ComponentRegistrar" />
+102-->[com.google.firebase:firebase-auth:23.0.0] /Users/astrid/.gradle/caches/transforms-3/449aa203c502014e249024addcc62845/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:71:17-82
+103            <meta-data
+103-->[com.google.firebase:firebase-common-ktx:21.0.0] /Users/astrid/.gradle/caches/transforms-3/d7cdecb351d58c3cbd82b1c49d232bde/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:12:13-14:85
+104                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+104-->[com.google.firebase:firebase-common-ktx:21.0.0] /Users/astrid/.gradle/caches/transforms-3/d7cdecb351d58c3cbd82b1c49d232bde/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:13:17-116
+105                android:value="com.google.firebase.components.ComponentRegistrar" />
+105-->[com.google.firebase:firebase-common-ktx:21.0.0] /Users/astrid/.gradle/caches/transforms-3/d7cdecb351d58c3cbd82b1c49d232bde/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:14:17-82
+106            <meta-data
+106-->[com.google.firebase:firebase-common:21.0.0] /Users/astrid/.gradle/caches/transforms-3/e7b40b5a3a0291154ac27a07e304bf43/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:35:13-37:85
+107                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+107-->[com.google.firebase:firebase-common:21.0.0] /Users/astrid/.gradle/caches/transforms-3/e7b40b5a3a0291154ac27a07e304bf43/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:36:17-109
+108                android:value="com.google.firebase.components.ComponentRegistrar" />
+108-->[com.google.firebase:firebase-common:21.0.0] /Users/astrid/.gradle/caches/transforms-3/e7b40b5a3a0291154ac27a07e304bf43/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:37:17-82
+109        </service>
+110
+111        <activity
+111-->[androidx.test:core:1.5.0] /Users/astrid/.gradle/caches/transforms-3/a33de611007a55e2ed0a64ae1151cd0f/transformed/jetified-core-1.5.0/AndroidManifest.xml:27:9-34:20
+112            android:name="androidx.test.core.app.InstrumentationActivityInvoker$BootstrapActivity"
+112-->[androidx.test:core:1.5.0] /Users/astrid/.gradle/caches/transforms-3/a33de611007a55e2ed0a64ae1151cd0f/transformed/jetified-core-1.5.0/AndroidManifest.xml:28:13-99
+113            android:exported="true"
+113-->[androidx.test:core:1.5.0] /Users/astrid/.gradle/caches/transforms-3/a33de611007a55e2ed0a64ae1151cd0f/transformed/jetified-core-1.5.0/AndroidManifest.xml:29:13-36
+114            android:theme="@style/WhiteBackgroundTheme" >
+114-->[androidx.test:core:1.5.0] /Users/astrid/.gradle/caches/transforms-3/a33de611007a55e2ed0a64ae1151cd0f/transformed/jetified-core-1.5.0/AndroidManifest.xml:30:13-56
+115            <intent-filter android:priority="-100" >
+115-->[androidx.test:core:1.5.0] /Users/astrid/.gradle/caches/transforms-3/a33de611007a55e2ed0a64ae1151cd0f/transformed/jetified-core-1.5.0/AndroidManifest.xml:31:13-33:29
+115-->[androidx.test:core:1.5.0] /Users/astrid/.gradle/caches/transforms-3/a33de611007a55e2ed0a64ae1151cd0f/transformed/jetified-core-1.5.0/AndroidManifest.xml:31:28-51
+116                <category android:name="android.intent.category.LAUNCHER" />
+116-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:31:17-77
+116-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:31:27-74
+117            </intent-filter>
+118        </activity>
+119        <activity
+119-->[androidx.test:core:1.5.0] /Users/astrid/.gradle/caches/transforms-3/a33de611007a55e2ed0a64ae1151cd0f/transformed/jetified-core-1.5.0/AndroidManifest.xml:35:9-42:20
+120            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity"
+120-->[androidx.test:core:1.5.0] /Users/astrid/.gradle/caches/transforms-3/a33de611007a55e2ed0a64ae1151cd0f/transformed/jetified-core-1.5.0/AndroidManifest.xml:36:13-95
+121            android:exported="true"
+121-->[androidx.test:core:1.5.0] /Users/astrid/.gradle/caches/transforms-3/a33de611007a55e2ed0a64ae1151cd0f/transformed/jetified-core-1.5.0/AndroidManifest.xml:37:13-36
+122            android:theme="@style/WhiteBackgroundTheme" >
+122-->[androidx.test:core:1.5.0] /Users/astrid/.gradle/caches/transforms-3/a33de611007a55e2ed0a64ae1151cd0f/transformed/jetified-core-1.5.0/AndroidManifest.xml:38:13-56
+123            <intent-filter android:priority="-100" >
+123-->[androidx.test:core:1.5.0] /Users/astrid/.gradle/caches/transforms-3/a33de611007a55e2ed0a64ae1151cd0f/transformed/jetified-core-1.5.0/AndroidManifest.xml:31:13-33:29
+123-->[androidx.test:core:1.5.0] /Users/astrid/.gradle/caches/transforms-3/a33de611007a55e2ed0a64ae1151cd0f/transformed/jetified-core-1.5.0/AndroidManifest.xml:31:28-51
+124                <category android:name="android.intent.category.LAUNCHER" />
+124-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:31:17-77
+124-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:31:27-74
+125            </intent-filter>
+126        </activity>
+127        <activity
+127-->[androidx.test:core:1.5.0] /Users/astrid/.gradle/caches/transforms-3/a33de611007a55e2ed0a64ae1151cd0f/transformed/jetified-core-1.5.0/AndroidManifest.xml:43:9-50:20
+128            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyFloatingActivity"
+128-->[androidx.test:core:1.5.0] /Users/astrid/.gradle/caches/transforms-3/a33de611007a55e2ed0a64ae1151cd0f/transformed/jetified-core-1.5.0/AndroidManifest.xml:44:13-103
+129            android:exported="true"
+129-->[androidx.test:core:1.5.0] /Users/astrid/.gradle/caches/transforms-3/a33de611007a55e2ed0a64ae1151cd0f/transformed/jetified-core-1.5.0/AndroidManifest.xml:45:13-36
+130            android:theme="@style/WhiteBackgroundDialogTheme" >
+130-->[androidx.test:core:1.5.0] /Users/astrid/.gradle/caches/transforms-3/a33de611007a55e2ed0a64ae1151cd0f/transformed/jetified-core-1.5.0/AndroidManifest.xml:46:13-62
+131            <intent-filter android:priority="-100" >
+131-->[androidx.test:core:1.5.0] /Users/astrid/.gradle/caches/transforms-3/a33de611007a55e2ed0a64ae1151cd0f/transformed/jetified-core-1.5.0/AndroidManifest.xml:31:13-33:29
+131-->[androidx.test:core:1.5.0] /Users/astrid/.gradle/caches/transforms-3/a33de611007a55e2ed0a64ae1151cd0f/transformed/jetified-core-1.5.0/AndroidManifest.xml:31:28-51
+132                <category android:name="android.intent.category.LAUNCHER" />
+132-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:31:17-77
+132-->/Users/astrid/AndroidStudioProjects/catch-up-app/app/src/main/AndroidManifest.xml:31:27-74
+133            </intent-filter>
+134        </activity>
+135
+136        <service
+136-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/astrid/.gradle/caches/transforms-3/b8562da658efd5131902086393b97895/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:24:9-32:19
+137            android:name="androidx.credentials.playservices.CredentialProviderMetadataHolder"
+137-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/astrid/.gradle/caches/transforms-3/b8562da658efd5131902086393b97895/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:25:13-94
+138            android:enabled="true"
+138-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/astrid/.gradle/caches/transforms-3/b8562da658efd5131902086393b97895/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:26:13-35
+139            android:exported="false" >
+139-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/astrid/.gradle/caches/transforms-3/b8562da658efd5131902086393b97895/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:27:13-37
+140            <meta-data
+140-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/astrid/.gradle/caches/transforms-3/b8562da658efd5131902086393b97895/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:29:13-31:104
+141                android:name="androidx.credentials.CREDENTIAL_PROVIDER_KEY"
+141-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/astrid/.gradle/caches/transforms-3/b8562da658efd5131902086393b97895/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:30:17-76
+142                android:value="androidx.credentials.playservices.CredentialProviderPlayServicesImpl" />
+142-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/astrid/.gradle/caches/transforms-3/b8562da658efd5131902086393b97895/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:31:17-101
+143        </service>
+144
+145        <activity
+145-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/astrid/.gradle/caches/transforms-3/b8562da658efd5131902086393b97895/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:34:9-41:20
+146            android:name="androidx.credentials.playservices.HiddenActivity"
+146-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/astrid/.gradle/caches/transforms-3/b8562da658efd5131902086393b97895/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:35:13-76
+147            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+147-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/astrid/.gradle/caches/transforms-3/b8562da658efd5131902086393b97895/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:36:13-87
+148            android:enabled="true"
+148-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/astrid/.gradle/caches/transforms-3/b8562da658efd5131902086393b97895/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:37:13-35
+149            android:exported="false"
+149-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/astrid/.gradle/caches/transforms-3/b8562da658efd5131902086393b97895/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:38:13-37
+150            android:fitsSystemWindows="true"
+150-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/astrid/.gradle/caches/transforms-3/b8562da658efd5131902086393b97895/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:39:13-45
+151            android:theme="@style/Theme.Hidden" >
+151-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/astrid/.gradle/caches/transforms-3/b8562da658efd5131902086393b97895/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:40:13-48
+152        </activity>
+153        <activity
+153-->[com.google.android.gms:play-services-auth:20.7.0] /Users/astrid/.gradle/caches/transforms-3/906b66c6013f46692167cf6e24f6093a/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:23:9-27:75
+154            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+154-->[com.google.android.gms:play-services-auth:20.7.0] /Users/astrid/.gradle/caches/transforms-3/906b66c6013f46692167cf6e24f6093a/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:24:13-93
+155            android:excludeFromRecents="true"
+155-->[com.google.android.gms:play-services-auth:20.7.0] /Users/astrid/.gradle/caches/transforms-3/906b66c6013f46692167cf6e24f6093a/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:25:13-46
+156            android:exported="false"
+156-->[com.google.android.gms:play-services-auth:20.7.0] /Users/astrid/.gradle/caches/transforms-3/906b66c6013f46692167cf6e24f6093a/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:26:13-37
+157            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+157-->[com.google.android.gms:play-services-auth:20.7.0] /Users/astrid/.gradle/caches/transforms-3/906b66c6013f46692167cf6e24f6093a/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:27:13-72
+158        <!--
+159            Service handling Google Sign-In user revocation. For apps that do not integrate with
+160            Google Sign-In, this service will never be started.
+161        -->
+162        <service
+162-->[com.google.android.gms:play-services-auth:20.7.0] /Users/astrid/.gradle/caches/transforms-3/906b66c6013f46692167cf6e24f6093a/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:33:9-37:51
+163            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+163-->[com.google.android.gms:play-services-auth:20.7.0] /Users/astrid/.gradle/caches/transforms-3/906b66c6013f46692167cf6e24f6093a/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:34:13-89
+164            android:exported="true"
+164-->[com.google.android.gms:play-services-auth:20.7.0] /Users/astrid/.gradle/caches/transforms-3/906b66c6013f46692167cf6e24f6093a/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:35:13-36
+165            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+165-->[com.google.android.gms:play-services-auth:20.7.0] /Users/astrid/.gradle/caches/transforms-3/906b66c6013f46692167cf6e24f6093a/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:36:13-107
+166            android:visibleToInstantApps="true" />
+166-->[com.google.android.gms:play-services-auth:20.7.0] /Users/astrid/.gradle/caches/transforms-3/906b66c6013f46692167cf6e24f6093a/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:37:13-48
+167
+168        <provider
+168-->[com.google.firebase:firebase-common:21.0.0] /Users/astrid/.gradle/caches/transforms-3/e7b40b5a3a0291154ac27a07e304bf43/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:23:9-28:39
+169            android:name="com.google.firebase.provider.FirebaseInitProvider"
+169-->[com.google.firebase:firebase-common:21.0.0] /Users/astrid/.gradle/caches/transforms-3/e7b40b5a3a0291154ac27a07e304bf43/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:24:13-77
+170            android:authorities="com.example.catch_up.firebaseinitprovider"
+170-->[com.google.firebase:firebase-common:21.0.0] /Users/astrid/.gradle/caches/transforms-3/e7b40b5a3a0291154ac27a07e304bf43/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:25:13-72
+171            android:directBootAware="true"
+171-->[com.google.firebase:firebase-common:21.0.0] /Users/astrid/.gradle/caches/transforms-3/e7b40b5a3a0291154ac27a07e304bf43/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:26:13-43
+172            android:exported="false"
+172-->[com.google.firebase:firebase-common:21.0.0] /Users/astrid/.gradle/caches/transforms-3/e7b40b5a3a0291154ac27a07e304bf43/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:27:13-37
+173            android:initOrder="100" />
+173-->[com.google.firebase:firebase-common:21.0.0] /Users/astrid/.gradle/caches/transforms-3/e7b40b5a3a0291154ac27a07e304bf43/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:28:13-36
+174
+175        <activity
+175-->[com.google.android.gms:play-services-base:18.0.1] /Users/astrid/.gradle/caches/transforms-3/affb219118fb3e2f66c7c0c91a9f7cf5/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+176            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+176-->[com.google.android.gms:play-services-base:18.0.1] /Users/astrid/.gradle/caches/transforms-3/affb219118fb3e2f66c7c0c91a9f7cf5/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+177            android:exported="false"
+177-->[com.google.android.gms:play-services-base:18.0.1] /Users/astrid/.gradle/caches/transforms-3/affb219118fb3e2f66c7c0c91a9f7cf5/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+178            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+178-->[com.google.android.gms:play-services-base:18.0.1] /Users/astrid/.gradle/caches/transforms-3/affb219118fb3e2f66c7c0c91a9f7cf5/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+179
+180        <provider
+180-->[androidx.emoji2:emoji2:1.2.0] /Users/astrid/.gradle/caches/transforms-3/776946759988d94dd5a86ef462780e00/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+181            android:name="androidx.startup.InitializationProvider"
+181-->[androidx.emoji2:emoji2:1.2.0] /Users/astrid/.gradle/caches/transforms-3/776946759988d94dd5a86ef462780e00/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+182            android:authorities="com.example.catch_up.androidx-startup"
+182-->[androidx.emoji2:emoji2:1.2.0] /Users/astrid/.gradle/caches/transforms-3/776946759988d94dd5a86ef462780e00/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+183            android:exported="false" >
+183-->[androidx.emoji2:emoji2:1.2.0] /Users/astrid/.gradle/caches/transforms-3/776946759988d94dd5a86ef462780e00/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+184            <meta-data
+184-->[androidx.emoji2:emoji2:1.2.0] /Users/astrid/.gradle/caches/transforms-3/776946759988d94dd5a86ef462780e00/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+185                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+185-->[androidx.emoji2:emoji2:1.2.0] /Users/astrid/.gradle/caches/transforms-3/776946759988d94dd5a86ef462780e00/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+186                android:value="androidx.startup" />
+186-->[androidx.emoji2:emoji2:1.2.0] /Users/astrid/.gradle/caches/transforms-3/776946759988d94dd5a86ef462780e00/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+187            <meta-data
+187-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/astrid/.gradle/caches/transforms-3/1a7e7eb3b8438dd045227ff60a043dfb/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:29:13-31:52
+188                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+188-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/astrid/.gradle/caches/transforms-3/1a7e7eb3b8438dd045227ff60a043dfb/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:30:17-78
+189                android:value="androidx.startup" />
+189-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/astrid/.gradle/caches/transforms-3/1a7e7eb3b8438dd045227ff60a043dfb/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:31:17-49
+190            <meta-data
+190-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/astrid/.gradle/caches/transforms-3/24bf0a20bb1ccd76ea891a218512ee8a/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+191                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+191-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/astrid/.gradle/caches/transforms-3/24bf0a20bb1ccd76ea891a218512ee8a/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+192                android:value="androidx.startup" />
+192-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/astrid/.gradle/caches/transforms-3/24bf0a20bb1ccd76ea891a218512ee8a/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+193        </provider>
+194
+195        <meta-data
+195-->[com.google.android.gms:play-services-basement:18.3.0] /Users/astrid/.gradle/caches/transforms-3/148d128a497c38e5362777a98e26e1dc/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:21:9-23:69
+196            android:name="com.google.android.gms.version"
+196-->[com.google.android.gms:play-services-basement:18.3.0] /Users/astrid/.gradle/caches/transforms-3/148d128a497c38e5362777a98e26e1dc/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:22:13-58
+197            android:value="@integer/google_play_services_version" />
+197-->[com.google.android.gms:play-services-basement:18.3.0] /Users/astrid/.gradle/caches/transforms-3/148d128a497c38e5362777a98e26e1dc/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:23:13-66
+198
+199        <receiver
+199-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/astrid/.gradle/caches/transforms-3/24bf0a20bb1ccd76ea891a218512ee8a/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+200            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+200-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/astrid/.gradle/caches/transforms-3/24bf0a20bb1ccd76ea891a218512ee8a/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+201            android:directBootAware="false"
+201-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/astrid/.gradle/caches/transforms-3/24bf0a20bb1ccd76ea891a218512ee8a/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+202            android:enabled="true"
+202-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/astrid/.gradle/caches/transforms-3/24bf0a20bb1ccd76ea891a218512ee8a/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+203            android:exported="true"
+203-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/astrid/.gradle/caches/transforms-3/24bf0a20bb1ccd76ea891a218512ee8a/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+204            android:permission="android.permission.DUMP" >
+204-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/astrid/.gradle/caches/transforms-3/24bf0a20bb1ccd76ea891a218512ee8a/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+205            <intent-filter>
+205-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/astrid/.gradle/caches/transforms-3/24bf0a20bb1ccd76ea891a218512ee8a/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+206                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+206-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/astrid/.gradle/caches/transforms-3/24bf0a20bb1ccd76ea891a218512ee8a/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+206-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/astrid/.gradle/caches/transforms-3/24bf0a20bb1ccd76ea891a218512ee8a/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+207            </intent-filter>
+208            <intent-filter>
+208-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/astrid/.gradle/caches/transforms-3/24bf0a20bb1ccd76ea891a218512ee8a/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+209                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+209-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/astrid/.gradle/caches/transforms-3/24bf0a20bb1ccd76ea891a218512ee8a/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+209-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/astrid/.gradle/caches/transforms-3/24bf0a20bb1ccd76ea891a218512ee8a/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+210            </intent-filter>
+211            <intent-filter>
+211-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/astrid/.gradle/caches/transforms-3/24bf0a20bb1ccd76ea891a218512ee8a/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+212                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+212-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/astrid/.gradle/caches/transforms-3/24bf0a20bb1ccd76ea891a218512ee8a/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+212-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/astrid/.gradle/caches/transforms-3/24bf0a20bb1ccd76ea891a218512ee8a/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+213            </intent-filter>
+214            <intent-filter>
+214-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/astrid/.gradle/caches/transforms-3/24bf0a20bb1ccd76ea891a218512ee8a/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+215                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+215-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/astrid/.gradle/caches/transforms-3/24bf0a20bb1ccd76ea891a218512ee8a/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+215-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/astrid/.gradle/caches/transforms-3/24bf0a20bb1ccd76ea891a218512ee8a/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+216            </intent-filter>
+217        </receiver>
+218    </application>
+219
+220</manifest>
