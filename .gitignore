@@ -19,18 +19,12 @@ app/build/
 .idea/
 *.iml
 gradle-wrapper.properties
-local.properties
 secrets.properties
 google-services.json
 
 # Key stores
 *.jks
 *.keystore
-
-# Logging files
-*.log
-*.tmp
-*.hprof
 
 # Ignore navigation editor temporary files
 .idea/navEditor.xml
