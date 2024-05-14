@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.util.Log;
 import android.widget.Toast;
+import androidx.appcompat.widget.SearchView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,9 +47,11 @@ public class ExploreFragment
 	private SupportMapFragment mapFragment; //wrapper and life cycle handler for map view
 	private GoogleMap map;
 
+	private SearchView searchView;
+
 	// Default map UI variables / objects
 	public static final LatLng DEFAULT_AUSTRALIA = new LatLng(-25, 135); // default initial lat/log
-	private int[] mapPad = new int[]{50,150,50,150}; // map padding in pixels {left, top, right, bottom} - constrains map UI controls
+	private int[] mapPad = new int[]{5,150,5,150}; // map padding in pixels {left, top, right, bottom} - constrains map UI controls
 	private boolean hasZoomControl = true;
 	private boolean hasCompass = true;
 	private boolean zoomGestures = true;
@@ -76,7 +79,14 @@ public class ExploreFragment
                              Bundle savedInstanceState) {
         // Initialise view
         View view = inflater.inflate(R.layout.fragment_explore, container, false);
-        // initialise map fragment
+
+		  // Initialise search view
+		  searchView = view.findViewById(R.id.search_view);
+		  searchView.setIconified(false);
+		  searchView.setOnQueryTextListener(new QueryTextListener());
+		  searchView.setOnCloseListener(new CloseListener());
+
+		  // initialise map fragment
 		  mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.google_map);
 		  mapFragment.getMapAsync(this);
         //return view
@@ -111,6 +121,7 @@ public class ExploreFragment
 	@Override
 	public void onMapClick(LatLng latLng)
 	{
+
 		String clickCoords = latLng.latitude + " : " + latLng.longitude;
 		Log.d(TAG, "Map click registered | " + clickCoords);
 
@@ -122,6 +133,7 @@ public class ExploreFragment
 		map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
 		map.addMarker(markerOptions);
 	}
+
 	@SuppressLint("MissingPermission")
 	public void enableLocationPermissions()
 	{
@@ -164,6 +176,40 @@ public class ExploreFragment
 		// Return false so that we don't consume the event and the default behavior still occurs
 		// (the camera animates to the user's current position).
 		return false;
+	}
+
+	public class QueryTextListener implements SearchView.OnQueryTextListener
+	{
+		@Override
+		public boolean onQueryTextSubmit(String query)
+		{
+			searchView.clearFocus();
+			Log.d(TAG, "onQueryTextSubmit triggered");
+			String queryText = query.trim();
+			if (queryText.isEmpty())
+			{
+				return false;
+			}
+			Log.d(TAG, "Query text submitted: " + queryText);
+			Toast.makeText(getActivity(), "Query text submitted: " + queryText, Toast.LENGTH_SHORT).show();
+
+			return true;
+		}
+
+		public boolean onQueryTextChange(String newText)
+		{
+			return false;
+		}
+	}
+
+	public class CloseListener implements SearchView.OnCloseListener
+	{
+		@Override
+		public boolean onClose()
+		{
+			searchView.clearFocus();
+			return false;
+		}
 	}
 
 }
