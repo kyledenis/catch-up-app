@@ -1,13 +1,13 @@
+import java.util.Locale
+
 plugins {
     id("com.android.application")
     id("com.google.gms.google-services") // Google Services plugin
-    alias(libs.plugins.androidApplication)
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
-    compileSdkVersion(34) // replace 34 with your desired API level
-
+    compileSdk = 34 // replace 34 with your desired API level
     defaultConfig {
         namespace = "com.example.catch_up"
         minSdk = 29
@@ -21,11 +21,39 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                    getDefaultProguardFile("proguard-android-optimize.txt"),
-                    "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
             )
         }
     }
+
+    applicationVariants.all {
+        outputs.all {
+            // Ensure processResources and processGoogleServices tasks are used correctly
+            val processGoogleServicesTask = tasks.named(
+                "process${
+                    name.replaceFirstChar {
+                        if (it.isLowerCase()) it.titlecase(
+                            Locale.getDefault()
+                        ) else it.toString()
+                    }
+                }GoogleServices"
+            )
+            tasks.named(
+                "merge${
+                    name.replaceFirstChar {
+                        if (it.isLowerCase()) it.titlecase(
+                            Locale.getDefault()
+                        ) else it.toString()
+                    }
+                }Resources"
+            )
+                .configure {
+                    dependsOn(processGoogleServicesTask)
+                }
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -33,11 +61,6 @@ android {
 
     buildFeatures {
         viewBinding = true
-    }
-
-    // Add this block to exclude the 'META-INF/AL2.0' file
-    packagingOptions {
-        exclude("META-INF/AL2.0")
     }
 }
 

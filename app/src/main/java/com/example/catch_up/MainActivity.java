@@ -1,12 +1,15 @@
 package com.example.catch_up;
 
-import android.content.Intent;
+import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -17,15 +20,22 @@ import com.example.catch_up.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import android.util.Log;
-import android.Manifest;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.activity.result.ActivityResultLauncher;
-import android.content.Context;
-
-
-
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "main_activity_log";
+    final String[] BASIC_PERMISSIONS = {
+            Manifest.permission.INTERNET,
+    };
+    final String[] LOCATION_PERMISSIONS = {
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.ACCESS_FINE_LOCATION
+    };
+    private final ActivityResultLauncher<String[]> multiplePermissionActivityResultLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), isGranted -> {
+                Log.d(TAG, "Launcher result: " + isGranted.toString());
+                if (isGranted.containsValue(false)) {
+                    Log.d(TAG, "At least one of the permissions was not granted");
+                }
+            });
 
     FirebaseAuth auth;
     Button button;
@@ -34,40 +44,12 @@ public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     Button settingsButton;
 
-    private static final String TAG = "main_activity_log";
-
-
-    final String[] BASIC_PERMISSIONS = {
-          Manifest.permission.INTERNET,
-    };
-
-   
-    final String[] LOCATION_PERMISSIONS = {
-          Manifest.permission.ACCESS_COARSE_LOCATION,
-          Manifest.permission.ACCESS_FINE_LOCATION
-    };
-
-    private final ActivityResultLauncher<String[]> multiplePermissionActivityResultLauncher =
-          registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), isGranted ->
-          {
-              Log.d(TAG, "Launcher result: " + isGranted.toString());
-              if (isGranted.containsValue(false))
-              {
-                  Log.d(TAG, "At least one of the permissions was not granted");
-              }
-          });
-
-    protected static boolean hasPermissions(Context context, String[] permissions)
-    {
+    protected static boolean hasPermissions(Context context, String[] permissions) {
         boolean permissionStatus = true;
-        for (String permission : permissions)
-        {
-            if (ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED)
-            {
+        for (String permission : permissions) {
+            if (ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED) {
                 Log.d(TAG, "Permission granted: " + permission);
-            }
-            else
-            {
+            } else {
                 Log.d(TAG, "Permission not granted: " + permission);
                 permissionStatus = false;
             }
@@ -75,15 +57,11 @@ public class MainActivity extends AppCompatActivity {
         return permissionStatus;
     }
 
-    private void askPermissions(String[] permissions)
-    {
-        if (!hasPermissions(permissions))
-        {
+    private void askPermissions(String[] permissions) {
+        if (!hasPermissions(this, permissions)) {  // Pass the context (this) as the first argument
             Log.d(TAG, "Launching multiple contract permission launcher for required permissions");
             multiplePermissionActivityResultLauncher.launch(permissions);
-        }
-        else
-        {
+        } else {
             Log.d(TAG, "Required permissions already granted");
         }
     }
@@ -94,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // Example usage of askPermissions to request BASIC_PERMISSIONS
+        askPermissions(BASIC_PERMISSIONS);
+
         binding.fab.setOnClickListener(view -> replaceFragment(new PlayFragment()));
 
         replaceFragment(new ExploreFragment());
@@ -101,20 +82,18 @@ public class MainActivity extends AppCompatActivity {
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.explore) {
-               Log.d(TAG, "Explore selected");
-               replaceFragment(new ExploreFragment());
+                Log.d(TAG, "Explore selected");
+                replaceFragment(new ExploreFragment());
             } else if (item.getItemId() == R.id.play) {
-               Log.d(TAG, "Play selected");
-               replaceFragment(new PlayFragment());
+                Log.d(TAG, "Play selected");
+                replaceFragment(new PlayFragment());
             } else if (item.getItemId() == R.id.saved) {
-               Log.d(TAG, "Saved selected");
-               replaceFragment(new SavedFragment());
+                Log.d(TAG, "Saved selected");
+                replaceFragment(new SavedFragment());
             }
             return true;
         });
     }
-
-
 
     private void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();

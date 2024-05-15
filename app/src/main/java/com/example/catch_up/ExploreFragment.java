@@ -49,14 +49,8 @@ public class ExploreFragment
     FirebaseUser user;
     Button settingsButton;
 
-    // Map objects
-    private SupportMapFragment mapFragment; //wrapper and life cycle handler for map view
     private GoogleMap map;
     private final int[] mapPad = new int[]{50, 150, 50, 150}; // map padding in pixels {left, top, right, bottom} - constrains map UI controls
-    private final boolean hasZoomControl = true;
-    private final boolean hasCompass = true;
-    private final boolean zoomGestures = true;
-    private final boolean rotateGestures = true;
 
     @SuppressLint("MissingPermission")
     private final ActivityResultLauncher<String[]> multiplePermissionActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), isGranted -> {
@@ -82,23 +76,23 @@ public class ExploreFragment
 
         // Check if the user is logged in
         if (user == null) {
-            Intent intent = new Intent(getActivity().getApplicationContext(), Login.class);
+            Intent intent = new Intent(requireActivity().getApplicationContext(), Login.class);
             startActivity(intent);
-            getActivity().finish();
+            requireActivity().finish();
         }
 
         // Set up the settings button
         settingsButton = view.findViewById(R.id.settings);
-        settingsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), SettingsActivity.class);
-                startActivity(intent);
-            }
+        settingsButton.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), SettingsActivity.class);
+            startActivity(intent);
         });
 
         // Initialize the map fragment
-        mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.google_map);
+        // Map objects
+        //wrapper and life cycle handler for map view
+        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.google_map);
+        assert mapFragment != null;
         mapFragment.getMapAsync(this);
 
         // Return the view
@@ -106,7 +100,7 @@ public class ExploreFragment
     }
 
     @Override
-    public void onMapReady(GoogleMap googleMap) {
+    public void onMapReady(@NonNull GoogleMap googleMap) {
         Log.d(TAG, "onMapReady() called");
         map = googleMap;
 
@@ -116,9 +110,13 @@ public class ExploreFragment
         enableLocationPermissions();
 
         UiSettings mapSet = map.getUiSettings();
+        boolean hasZoomControl = true;
         mapSet.setZoomControlsEnabled(hasZoomControl);
+        boolean hasCompass = true;
         mapSet.setCompassEnabled(hasCompass);
+        boolean zoomGestures = true;
         mapSet.setZoomGesturesEnabled(zoomGestures);
+        boolean rotateGestures = true;
         mapSet.setRotateGesturesEnabled(rotateGestures);
 
         //in future can check if we can get coordinates from device locale or location permission
@@ -146,7 +144,7 @@ public class ExploreFragment
     public void enableLocationPermissions() {
         boolean hasPermissions = true;
         for (String permission : LOCATION_PERMISSIONS) {
-            if (ContextCompat.checkSelfPermission(this.getContext(), permission) == PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(this.requireContext(), permission) == PackageManager.PERMISSION_GRANTED) {
                 Log.d(TAG, "Permission granted: " + permission);
             } else {
                 Log.d(TAG, "Permission not granted: " + permission);

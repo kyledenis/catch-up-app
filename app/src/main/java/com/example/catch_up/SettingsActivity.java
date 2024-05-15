@@ -2,7 +2,6 @@ package com.example.catch_up;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,14 +20,11 @@ public class SettingsActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         Logout = findViewById(R.id.Logout);
 
-        Logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                auth.signOut();
-                Intent intent = new Intent(SettingsActivity.this, Login.class);
-                startActivity(intent);
-                finish();
-            }
+        Logout.setOnClickListener(v -> {
+            auth.signOut();
+            Intent intent = new Intent(SettingsActivity.this, Login.class);
+            startActivity(intent);
+            finish();
         });
     }
 }

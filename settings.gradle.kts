@@ -17,7 +17,6 @@ pluginManagement {
         }
     }
     buildscript {
-        val kotlin_version = "1.6.10"
         repositories {
             // Make sure that you have the following two repositories
             google()  // Google's Maven repository
