@@ -45,9 +45,12 @@ dependencies {
     implementation(libs.play.services.maps)
     implementation(libs.appcompat.resources)
     implementation(libs.appcompat)
+    implementation(platform(libs.kotlin.bom))
+    implementation(libs.places)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
 }
 
 secrets {
