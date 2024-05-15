@@ -16,18 +16,36 @@
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.Catchup"
         tools:targetApi="31">
+        
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />
+        
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".SettingsActivity" />
+        
+        <activity
+            android:name=".Registration"
+            android:exported="false"
+            android:theme="@style/Base.Theme.Catchup" />
+        
+        <activity
+            android:name=".Login"
+            android:exported="true"
+            android:theme="@style/Base.Theme.Catchup">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
+        
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+        </activity>
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+    </application>
 </manifest>

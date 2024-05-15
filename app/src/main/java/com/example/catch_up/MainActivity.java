@@ -1,7 +1,11 @@
 package com.example.catch_up;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -10,6 +14,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.catch_up.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import android.util.Log;
 import android.Manifest;
@@ -20,7 +26,13 @@ import android.content.Context;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    FirebaseAuth auth;
+    Button button;
+    TextView textView;
+    FirebaseUser user;
     ActivityMainBinding binding;
+    Button settingsButton;
 
     private static final String TAG = "main_activity_log";
 
@@ -29,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
           Manifest.permission.INTERNET,
     };
 
-   /*
+   
     final String[] LOCATION_PERMISSIONS = {
           Manifest.permission.ACCESS_COARSE_LOCATION,
           Manifest.permission.ACCESS_FINE_LOCATION
@@ -74,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         {
             Log.d(TAG, "Required permissions already granted");
         }
-    } */
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +113,8 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
     }
+
+
 
     private void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();

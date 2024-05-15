@@ -1,19 +1,19 @@
 plugins {
+    id("com.android.application")
+    id("com.google.gms.google-services") // Google Services plugin
     alias(libs.plugins.androidApplication)
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
-    namespace = "com.example.catch_up"
-    compileSdk = 34
+    compileSdkVersion(34) // replace 34 with your desired API level
 
     defaultConfig {
-        applicationId = "com.example.catch_up"
+        namespace = "com.example.catch_up"
         minSdk = 29
-        targetSdk = 34
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -21,8 +21,8 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
             )
         }
     }
@@ -34,18 +34,29 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+    // Add this block to exclude the 'META-INF/AL2.0' file
+    packagingOptions {
+        exclude("META-INF/AL2.0")
+    }
 }
 
 dependencies {
-
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.google.firebase.auth)
+    implementation(libs.coordinatorlayout)
+    implementation(libs.google.material)
+    implementation(libs.monitor)
+    implementation(libs.ext.junit)
+    implementation(libs.support.annotations)
     implementation(libs.appcompat)
-    implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.play.services.maps)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    androidTestImplementation(libs.testng) // Firebase Authentication
 }
 
 secrets {
