@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("com.google.gms.google-services") // Google Services plugin
+    alias(libs.plugins.androidApplication)
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
@@ -50,11 +52,20 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
-    testImplementation(libs.junit.v412)
+    implementation(libs.play.services.maps)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.ext.junit)
+    androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.testng) // Firebase Authentication
-
 }
 
-fun compileSdkVersion(i: Int) {
-    // do nothing
+secrets {
+    // Optionally specify a different file name containing your secrets.
+    // The plugin defaults to "local.properties"
+    propertiesFileName = "secrets.properties"
+
+    // Configure which keys should be ignored by the plugin by providing regular expressions.
+    // "sdk.dir" is ignored by default.
+    ignoreList.add("keyToIgnore") // Ignore the key "keyToIgnore"
+    ignoreList.add("sdk.*")       // Ignore all keys matching the regexp "sdk.*"
 }

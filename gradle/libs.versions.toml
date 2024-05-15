@@ -7,7 +7,7 @@ junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 appcompat = "1.6.1"
 material = "1.11.0"
-activity = "1.8.0"
+activity = "1.9.0"
 constraintlayout = "2.1.4"
 googleGmsGoogleServices = "4.4.1"
 firebaseAuth = "23.0.0"
@@ -16,6 +16,7 @@ materialVersion = "1.12.0"
 monitor = "1.6.1"
 testng = "6.9.6"
 supportAnnotations = "28.0.0"
+playServicesMaps = "18.2.0"
 
 [libraries]
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
@@ -34,6 +35,7 @@ google-material = { group = "com.google.android.material", name = "material", ve
 monitor = { group = "androidx.test", name = "monitor", version.ref = "monitor" }
 testng = { module = "org.testng:testng", version.ref = "testng" }
 support-annotations = { group = "com.android.support", name = "support-annotations", version.ref = "supportAnnotations" }
+play-services-maps = { group = "com.google.android.gms", name = "play-services-maps", version.ref = "playServicesMaps" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
