@@ -1,25 +1,31 @@
 package com.example.catch_up;
 
+//persistence & context
 import android.os.Bundle;
-import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
-import android.location.Location;
-import android.util.Log;
-import android.widget.Toast;
-import androidx.appcompat.widget.SearchView;
+import androidx.core.content.ContextCompat;
 
+//utility
+import android.util.Log;
+import android.annotation.SuppressLint;
+import androidx.annotation.NonNull;
+import android.widget.Toast;
+
+//fragments and views
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.appcompat.widget.SearchView;
 
+//permissions
+import android.Manifest;
 import androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.activity.result.ActivityResultLauncher;
-import androidx.core.content.ContextCompat;
 
+//maps
+import android.location.Location;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -39,45 +45,39 @@ public class ExploreFragment
 		OnMyLocationClickListener,
 		GoogleMap.OnMapClickListener
 {
-	private static final String[] LOCATION_PERMISSIONS = {Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION};
 
+	// utility
 	private static final String TAG = "explore_fragment_log";
+
+	// permissions
+	private static final String[] LOCATION_PERMISSIONS =
+			{
+					Manifest.permission.ACCESS_COARSE_LOCATION,
+					Manifest.permission.ACCESS_FINE_LOCATION
+			};
 
 	// Map objects
 	private SupportMapFragment mapFragment; //wrapper and life cycle handler for map view
 	private GoogleMap map;
 
+	//widgets
 	private SearchView searchView;
 
 	// Default map UI variables / objects
 	public static final LatLng DEFAULT_AUSTRALIA = new LatLng(-25, 135); // default initial lat/log
-	private int[] mapPad = new int[]{5,150,5,150}; // map padding in pixels {left, top, right, bottom} - constrains map UI controls
-	private boolean hasZoomControl = true;
-	private boolean hasCompass = true;
-	private boolean zoomGestures = true;
-	private boolean rotateGestures = true;
+	private final int[] mapPad = new int[]{5,150,5,150}; // map padding in pixels {left, top, right, bottom} - constrains map UI controls
+	private final boolean hasZoomControl = true;
+	private final boolean hasCompass = true;
+	private final boolean zoomGestures = true;
+	private final boolean rotateGestures = true;
 
-	@SuppressLint("MissingPermission")
-	private ActivityResultLauncher<String[]> multiplePermissionActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), isGranted ->
-			{
-				Log.d(TAG, "Launcher result: " + isGranted.toString());
-				if (isGranted.containsValue(false))
-				{
-					Toast.makeText(this.getContext(), "Location permissions currently disabled", Toast.LENGTH_SHORT).show();
-				}
-				else
-				{
-					Toast.makeText(this.getContext(), "Location permissions enabled", Toast.LENGTH_SHORT).show();
-					map.setMyLocationEnabled(true);
-					map.setOnMyLocationButtonClickListener(this);
-					map.setOnMyLocationClickListener(this);
-				}
-			});
+
 
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Initialise view
+
+		  // Initialise view
         View view = inflater.inflate(R.layout.fragment_explore, container, false);
 
 		  // Initialise search view
@@ -87,14 +87,14 @@ public class ExploreFragment
 		  searchView.setOnCloseListener(new CloseListener());
 
 		  // initialise map fragment
-		  mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.google_map);
+		  mapFragment = (SupportMapFragment) this.getChildFragmentManager().findFragmentById(R.id.google_map);
 		  mapFragment.getMapAsync(this);
         //return view
         return view;
     }
 
 	 @Override
-	 public void onMapReady(GoogleMap googleMap)
+	 public void onMapReady(@NonNull GoogleMap googleMap)
 	 {
 		 Log.d(TAG, "onMapReady() called");
 		 map = googleMap;
@@ -103,7 +103,7 @@ public class ExploreFragment
 		 map.setPadding(mapPad[0], mapPad[1], mapPad[2], mapPad[3]);
 
 
-		 enableLocationPermissions();
+		 setupMapLocationTools();
 
 		 UiSettings mapSet = map.getUiSettings();
 		 mapSet.setZoomControlsEnabled(hasZoomControl);
@@ -134,13 +134,23 @@ public class ExploreFragment
 		map.addMarker(markerOptions);
 	}
 
-	@SuppressLint("MissingPermission")
-	public void enableLocationPermissions()
+	private void setupMapLocationTools()
+	{
+		if (hasPermissions(LOCATION_PERMISSIONS))
+		{
+			enableMapLocationTools(map);
+		}
+		else
+		{
+			locationRequestActivityResultLauncher.launch(LOCATION_PERMISSIONS);
+		}
+	}
+	public boolean hasPermissions(String[] permissions)
 	{
 		boolean hasPermissions = true;
-		for (String permission : LOCATION_PERMISSIONS)
+		for (String permission : permissions)
 		{
-			if (ContextCompat.checkSelfPermission(this.getContext(), permission) == PackageManager.PERMISSION_GRANTED)
+			if (ContextCompat.checkSelfPermission(this.requireContext(), permission) == PackageManager.PERMISSION_GRANTED)
 			{
 				Log.d(TAG, "Permission granted: " + permission);
 			}
@@ -150,18 +160,34 @@ public class ExploreFragment
 				hasPermissions = false;
 			}
 		}
-		if (!hasPermissions)
-		{
-			multiplePermissionActivityResultLauncher.launch(LOCATION_PERMISSIONS);
-		}
-		else
-		{
-			map.setMyLocationEnabled(true);
-			map.setOnMyLocationButtonClickListener(this);
-			map.setOnMyLocationClickListener(this);
-		}
-
+		return hasPermissions;
 	}
+
+	private final ActivityResultLauncher<String[]> locationRequestActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(),
+			result ->
+			{
+				Boolean fineLocationGranted = Boolean.TRUE.equals(result.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false));
+				Boolean coarseLocationGranted = Boolean.TRUE.equals(result.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION,false));
+
+				if (fineLocationGranted && coarseLocationGranted)
+				{
+					Toast.makeText(this.getActivity(), "Location permissions enabled", Toast.LENGTH_SHORT).show();
+					enableMapLocationTools(map);
+				}
+				else
+				{
+					Toast.makeText(this.getActivity(), "Location permissions currently disabled. \nSome functions may not work.", Toast.LENGTH_SHORT).show();
+				}
+			});
+
+	@SuppressLint("MissingPermission")
+	private void enableMapLocationTools(GoogleMap googleMap)
+	{
+		googleMap.setMyLocationEnabled(true);
+		googleMap.setOnMyLocationButtonClickListener(this);
+		googleMap.setOnMyLocationClickListener(this);
+	}
+
 
 	@Override
 	public void onMyLocationClick(@NonNull Location location)
