@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SettingsActivity extends AppCompatActivity {
-
     FirebaseAuth auth;
     Button Logout;
 

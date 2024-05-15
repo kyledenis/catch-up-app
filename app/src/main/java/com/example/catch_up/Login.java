@@ -12,9 +12,6 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -24,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity {
-    TextInputEditText editTextEmail , editTextPassword;
+    TextInputEditText editTextEmail, editTextPassword;
     Button buttonLogin;
     FirebaseAuth mAuth;
 
@@ -35,7 +32,7 @@ public class Login extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
+        if (currentUser != null) {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
             finish();
@@ -49,11 +46,11 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
-        editTextEmail= findViewById(R.id.Email);
-        editTextPassword= findViewById(R.id.Password);
-        buttonLogin= findViewById(R.id.btn_login);
-        progressBar= findViewById(R.id.progressBar);
-        textView= findViewById(R.id.registerNow);
+        editTextEmail = findViewById(R.id.Email);
+        editTextPassword = findViewById(R.id.Password);
+        buttonLogin = findViewById(R.id.btn_login);
+        progressBar = findViewById(R.id.progressBar);
+        textView = findViewById(R.id.registerNow);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,20 +65,20 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 progressBar.setVisibility(View.VISIBLE);
                 String email, password;
-                email= String.valueOf(editTextEmail.getText());
-                password= String.valueOf(editTextPassword.getText());
+                email = String.valueOf(editTextEmail.getText());
+                password = String.valueOf(editTextPassword.getText());
 
-                if(TextUtils.isEmpty(email)){
+                if (TextUtils.isEmpty(email)) {
                     Toast.makeText(Login.this, "Please enter email", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(TextUtils.isEmpty(password)){
+                if (TextUtils.isEmpty(password)) {
                     Toast.makeText(Login.this, "Please enter password", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 mAuth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBar.setVisibility(View.GONE);

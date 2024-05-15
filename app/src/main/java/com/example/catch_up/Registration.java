@@ -3,7 +3,6 @@ package com.example.catch_up;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -13,9 +12,6 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,7 +22,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Registration extends AppCompatActivity {
 
-    TextInputEditText editTextEmail , editTextPassword;
+    TextInputEditText editTextEmail, editTextPassword;
     Button buttonReg;
     FirebaseAuth mAuth;
 
@@ -37,7 +33,7 @@ public class Registration extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
+        if (currentUser != null) {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
             finish();
@@ -50,11 +46,11 @@ public class Registration extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_registration);
         mAuth = FirebaseAuth.getInstance();
-        editTextEmail= findViewById(R.id.Email);
-        editTextPassword= findViewById(R.id.Password);
-        buttonReg= findViewById(R.id.btn_register);
-        progressBar= findViewById(R.id.progressBar);
-        textView= findViewById(R.id.loginNow);
+        editTextEmail = findViewById(R.id.Email);
+        editTextPassword = findViewById(R.id.Password);
+        buttonReg = findViewById(R.id.btn_register);
+        progressBar = findViewById(R.id.progressBar);
+        textView = findViewById(R.id.loginNow);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,23 +60,19 @@ public class Registration extends AppCompatActivity {
             }
         });
 
-
-
-
-
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 progressBar.setVisibility(View.VISIBLE);
                 String email, password;
-                email= String.valueOf(editTextEmail.getText());
-                password= String.valueOf(editTextPassword.getText());
+                email = String.valueOf(editTextEmail.getText());
+                password = String.valueOf(editTextPassword.getText());
 
-                if(TextUtils.isEmpty(email)){
+                if (TextUtils.isEmpty(email)) {
                     Toast.makeText(Registration.this, "Please enter email", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(TextUtils.isEmpty(password)){
+                if (TextUtils.isEmpty(password)) {
                     Toast.makeText(Registration.this, "Please enter password", Toast.LENGTH_SHORT).show();
                     return;
                 }

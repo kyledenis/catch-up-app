@@ -25,7 +25,7 @@ pluginManagement {
         }
     }
 
-    enableFeaturePreview("VERSION_CATALOGS")
+    // enableFeaturePreview("VERSION_CATALOGS")
 
     rootProject.name = "catch-up"
     include(":app")

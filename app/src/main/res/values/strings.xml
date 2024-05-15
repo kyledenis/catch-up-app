@@ -1,5 +1,4 @@
 <resources>
-    <string name="google_maps_key">AIzaSyCoAMpvJero9P4tGNpneA62wqJTqudKfwU</string>
     <string name="app_name">catch-up</string>
     <string name="play">Play</string>
     <string name="explore">Explore</string>
@@ -9,7 +8,6 @@
     <string name="login">Login</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="resigter">Resigter</string>
     <string name="register">Register</string>
     <string name="click_to_login">Click to Login</string>
     <string name="click_to_register">Click to register</string>
