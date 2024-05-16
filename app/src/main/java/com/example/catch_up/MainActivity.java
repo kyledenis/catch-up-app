@@ -2,10 +2,12 @@ package com.example.catch_up;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -92,6 +94,13 @@ public class MainActivity extends AppCompatActivity {
                 replaceFragment(new SavedFragment());
             }
             return true;
+        });
+
+        // Handle settings icon click
+        ImageView settingsIcon = findViewById(R.id.settings_icon);
+        settingsIcon.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(intent);
         });
     }
 

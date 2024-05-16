@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -44,13 +43,12 @@ public class ExploreFragment
     public static final LatLng DEFAULT_AUSTRALIA = new LatLng(-25, 135); // default initial lat/log
     private static final String[] LOCATION_PERMISSIONS = {Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION};
     private static final String TAG = "explore_fragment_log";
+    private final int[] mapPad = new int[]{50, 150, 50, 150}; // map padding in pixels {left, top, right, bottom} - constrains map UI controls
 
     FirebaseAuth auth;
     FirebaseUser user;
-    Button settingsButton;
 
     private GoogleMap map;
-    private final int[] mapPad = new int[]{50, 150, 50, 150}; // map padding in pixels {left, top, right, bottom} - constrains map UI controls
 
     @SuppressLint("MissingPermission")
     private final ActivityResultLauncher<String[]> multiplePermissionActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), isGranted -> {
@@ -81,16 +79,8 @@ public class ExploreFragment
             requireActivity().finish();
         }
 
-        // Set up the settings button
-        settingsButton = view.findViewById(R.id.settings);
-        settingsButton.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), SettingsActivity.class);
-            startActivity(intent);
-        });
-
         // Initialize the map fragment
-        // Map objects
-        //wrapper and life cycle handler for map view
+        // Wrapper and life cycle handler for map view
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.google_map);
         assert mapFragment != null;
         mapFragment.getMapAsync(this);
@@ -104,25 +94,17 @@ public class ExploreFragment
         Log.d(TAG, "onMapReady() called");
         map = googleMap;
 
-        // pass in our map and ui settings declared up top
-        map.setPadding(mapPad[0], mapPad[1], mapPad[2], mapPad[3]);
+        UiSettings mapSet = map.getUiSettings();
+        mapSet.setZoomControlsEnabled(true);
+        mapSet.setZoomGesturesEnabled(true);
+        mapSet.setRotateGesturesEnabled(false); // Disabled for UX simplicity
+        mapSet.setCompassEnabled(false); // Not needed if rotate gestures are disabled
 
         enableLocationPermissions();
 
-        UiSettings mapSet = map.getUiSettings();
-        boolean hasZoomControl = true;
-        mapSet.setZoomControlsEnabled(hasZoomControl);
-        boolean hasCompass = true;
-        mapSet.setCompassEnabled(hasCompass);
-        boolean zoomGestures = true;
-        mapSet.setZoomGesturesEnabled(zoomGestures);
-        boolean rotateGestures = true;
-        mapSet.setRotateGesturesEnabled(rotateGestures);
+        map.setPadding(mapPad[0], mapPad[1], mapPad[2], mapPad[3]);
 
-        //in future can check if we can get coordinates from device locale or location permission
-        //in the mean time we can default to Australia instead of Africa
         map.moveCamera(CameraUpdateFactory.newLatLng(DEFAULT_AUSTRALIA));
-
         map.setOnMapClickListener(this);
     }
 
@@ -131,7 +113,7 @@ public class ExploreFragment
         String clickCoords = latLng.latitude + " : " + latLng.longitude;
         Log.d(TAG, "Map click registered | " + clickCoords);
 
-        //Place marker at clicked coordinates
+        // Place marker at clicked coordinates
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
         markerOptions.title(clickCoords);
