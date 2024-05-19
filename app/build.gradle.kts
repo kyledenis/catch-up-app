@@ -42,11 +42,14 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
-    implementation(libs.play.services.maps)
     implementation(libs.appcompat.resources)
     implementation(libs.appcompat)
-    implementation(platform(libs.kotlin.bom))
-    implementation(libs.places)
+
+    implementation(libs.play.services.location) // google location services
+    implementation(libs.play.services.maps) // google maps sdk
+    implementation(libs.places) // google places sdk
+    implementation(platform(libs.kotlin.bom)) // kotlin-bom needed for google places
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -57,6 +60,7 @@ secrets {
     // Optionally specify a different file name containing your secrets.
     // The plugin defaults to "local.properties"
     propertiesFileName = "secrets.properties"
+    defaultPropertiesFileName = "local.defaults.properties"
 
     // Configure which keys should be ignored by the plugin by providing regular expressions.
     // "sdk.dir" is ignored by default.
