@@ -7,14 +7,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import com.example.catch_up.databinding.ActivityMainBinding;
-import android.content.Context;
 
 // utilities
+import android.text.TextUtils;
 import android.util.Log;
 
 // places api
 import com.google.android.libraries.places.api.Places;
-
 
 
 public class MainActivity extends AppCompatActivity {
@@ -27,7 +26,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Places.initializeWithNewPlacesApiEnabled(getApplicationContext(), );
+       // Define a variable to hold the Places API key.
+       String apiKey = BuildConfig.PLACES_API_KEY;
+
+       // Log an error if apiKey is not set.
+       if (TextUtils.isEmpty(apiKey) || apiKey.equals("DEFAULT_API_KEY")) {
+          Log.e("Places test", "No api key");
+          finish();
+          return;
+       }
+
+       // Initialize the SDK
+       Places.initializeWithNewPlacesApiEnabled(getApplicationContext(), apiKey);
+
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
