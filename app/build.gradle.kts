@@ -1,19 +1,19 @@
+import java.util.Locale
+
 plugins {
-    alias(libs.plugins.androidApplication)
+    id("com.android.application")
+    id("com.google.gms.google-services") // Google Services plugin
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
-    namespace = "com.example.catch_up"
-    compileSdk = 34
-
+    compileSdk = 34 // replace 34 with your desired API level
     defaultConfig {
-        applicationId = "com.example.catch_up"
+        namespace = "com.example.catch_up"
         minSdk = 29
-        targetSdk = 34
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -26,6 +26,34 @@ android {
             )
         }
     }
+
+    applicationVariants.all {
+        outputs.all {
+            // Ensure processResources and processGoogleServices tasks are used correctly
+            val processGoogleServicesTask = tasks.named(
+                "process${
+                    name.replaceFirstChar {
+                        if (it.isLowerCase()) it.titlecase(
+                            Locale.getDefault()
+                        ) else it.toString()
+                    }
+                }GoogleServices"
+            )
+            tasks.named(
+                "merge${
+                    name.replaceFirstChar {
+                        if (it.isLowerCase()) it.titlecase(
+                            Locale.getDefault()
+                        ) else it.toString()
+                    }
+                }Resources"
+            )
+                .configure {
+                    dependsOn(processGoogleServicesTask)
+                }
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -38,8 +66,15 @@ android {
 }
 
 dependencies {
-
     implementation(libs.material)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.google.firebase.auth)
+    implementation(libs.coordinatorlayout)
+    implementation(libs.google.material)
+    implementation(libs.monitor)
+    implementation(libs.ext.junit)
+    implementation(libs.support.annotations)
+    implementation(libs.appcompat)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.appcompat.resources)
@@ -53,7 +88,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-
+    androidTestImplementation(libs.testng) // Firebase Authentication
 }
 
 secrets {

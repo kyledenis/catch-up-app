@@ -6,12 +6,16 @@
     android:background="@color/catchup_background"
     tools:context=".ExploreFragment">
 
-    <androidx.fragment.app.FragmentContainerView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:map="http://schemas.android.com/apk/res-auto"
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/google_map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_marginTop="65dp"
+        android:gravity="center"
+        android:text="@string/explore"
+        android:textColor="@color/white"
+        android:textSize="25sp" />
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search_view"
@@ -22,5 +26,4 @@
         android:elevation="5dp"
         android:iconifiedByDefault="false"
         android:queryHint="@String/explore_map_hint" />
-
 </FrameLayout>

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item
         android:id="@+id/explore"
         android:icon="@drawable/search_24"
         android:title="@string/explore" />
 
     <item
-        android:id="@+id/play"
         android:enabled="false"
         android:title="" />
 
