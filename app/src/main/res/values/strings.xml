@@ -17,4 +17,12 @@
     <string name="sign_up">Sign Up</string>
     <string name="click_to_sign_up">Click to Sign Up</string>
     <string name="click_to_sign_in">Click to Sign In</string>
+    <string name="game_options">Game Options</string>
+    <string name="create_catch_up">Create Catch-Up</string>
+    <string name="join_catch_up">Join Catch-Up</string>
+    <string name="cancel_button">Cancel button</string>
+    <string name="list">List</string>
+    <string name="location">Location</string>
+    <string name="done">Done</string>
+    <string name="select_game_type">Select Game Type:</string>
 </resources>

@@ -1,19 +1,34 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="Base.Theme.Catchup" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary light theme. -->
-        <item name="background">@color/catchup_background</item>
-        <item name="colorPrimary">@color/catchup_navbar_background</item>
-        <item name="colorPrimaryVariant">@color/catchup_grey_dark</item>
-        <item name="colorPrimarySurface">@color/catchup_grey_light</item>
+    <style name="Base.Theme.Catchup" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:colorBackground">@color/catchup_background</item>
+        <item name="colorPrimary">@color/catchup_primary</item>
+        <item name="colorPrimaryVariant">@color/catchup_grey_light</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/catchup_primary</item>
+        <item name="colorSurface">@color/catchup_background</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="android:statusBarColor">@color/catchup_navbar_background</item>
+        <item name="android:navigationBarColor">@color/catchup_navbar_background</item>
 
-        <!-- Secondary light theme. -->
-        <item name="colorSecondary">@color/catchup_primary</item>
+        <!-- Toolbar style -->
+        <item name="toolbarStyle">@style/ToolbarStyle</item>
+    </style>
 
-        <!-- Tertiary light theme. -->
-        <item name="colorTertiary">@color/catchup_featured</item>
+    <!-- Toolbar style properties -->
+    <style name="ToolbarStyle" parent="Widget.MaterialComponents.Toolbar">
+        <item name="background">@color/catchup_navbar_background</item>
+        <item name="titleTextColor">@color/white</item>
+        <item name="subtitleTextColor">@color/catchup_grey_light</item>
+    </style>
 
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/background</item>
+    <style name="ButtonBackground" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/catchup_grey_light</item>
+    </style>
+
+    <!-- Dialog animation style -->
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_animation</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_animation</item>
     </style>
 </resources>

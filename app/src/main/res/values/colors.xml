@@ -5,6 +5,7 @@
     <color name="catchup_navbar_background">#444444</color>
     <color name="catchup_grey_dark">#757575</color>
     <color name="catchup_grey_light">#D9D9D9</color>
+    <color name="catchup_popup_transparent">#D8D9D9D9</color>
     <color name="catchup_thumbs_up">#C0FABD</color>
     <color name="catchup_thumbs_down">#EDB2B9</color>
     <color name="catchup_featured">#EAB308</color>

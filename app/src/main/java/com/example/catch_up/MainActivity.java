@@ -1,13 +1,19 @@
 package com.example.catch_up;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -21,6 +27,8 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.catch_up.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "main_activity_log";
@@ -60,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void askPermissions(String[] permissions) {
-        if (!hasPermissions(this, permissions)) {  // Pass the context (this) as the first argument
+        if (!hasPermissions(this, permissions)) {
             Log.d(TAG, "Launching multiple contract permission launcher for required permissions");
             multiplePermissionActivityResultLauncher.launch(permissions);
         } else {
@@ -74,10 +82,9 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Example usage of askPermissions to request BASIC_PERMISSIONS
         askPermissions(BASIC_PERMISSIONS);
 
-        binding.fab.setOnClickListener(view -> replaceFragment(new PlayFragment()));
+        binding.fab.setOnClickListener(view -> showBottomDialog());
 
         replaceFragment(new ExploreFragment());
         binding.bottomNavigationView.setBackground(null);
@@ -86,9 +93,6 @@ public class MainActivity extends AppCompatActivity {
             if (item.getItemId() == R.id.explore) {
                 Log.d(TAG, "Explore selected");
                 replaceFragment(new ExploreFragment());
-            } else if (item.getItemId() == R.id.play) {
-                Log.d(TAG, "Play selected");
-                replaceFragment(new PlayFragment());
             } else if (item.getItemId() == R.id.saved) {
                 Log.d(TAG, "Saved selected");
                 replaceFragment(new SavedFragment());
@@ -108,6 +112,37 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame_layout, fragment);
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+    }
+
+    private void showBottomDialog() {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.bottomsheet_layout);
+
+        ImageView cancelButton = dialog.findViewById(R.id.cancel_button);
+        cancelButton.setOnClickListener(v -> dialog.dismiss());
+
+        // Find and set click listeners for the new buttons
+        Button createGameButton = dialog.findViewById(R.id.create_game_button);
+        Button joinGameButton = dialog.findViewById(R.id.join_game_button);
+
+        createGameButton.setOnClickListener(v -> {
+            // Handle create game button click
+            replaceFragment(new GameTypeFragment());
+            dialog.dismiss();
+        });
+
+        joinGameButton.setOnClickListener(v -> {
+            // Handle join game button click
+            dialog.dismiss();
+        });
+
+        dialog.show();
+        Objects.requireNonNull(dialog.getWindow()).setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        dialog.getWindow().setGravity(Gravity.BOTTOM);
     }
 }
