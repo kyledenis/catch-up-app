@@ -1,5 +1,6 @@
 [versions]
 agp = "8.3.2"
+gradle = "8.0.2"
 firebaseBom = "33.0.0"
 junit = "4.13.2"
 junitJunit = "4.13.2"
@@ -17,8 +18,14 @@ monitor = "1.6.1"
 testng = "6.9.6"
 supportAnnotations = "28.0.0"
 playServicesMaps = "18.2.0"
+secretsGradlePlugin = "2.0.1"
+appcompatResources = "1.6.1"
+kotlinBom = "2.0.0-RC3"
+places = "3.4.0"
+playServicesLocation = "21.2.0"
 
 [libraries]
+gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 google-firebase-auth = { module = "com.google.firebase:firebase-auth" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -36,6 +43,11 @@ monitor = { group = "androidx.test", name = "monitor", version.ref = "monitor" }
 testng = { module = "org.testng:testng", version.ref = "testng" }
 support-annotations = { group = "com.android.support", name = "support-annotations", version.ref = "supportAnnotations" }
 play-services-maps = { group = "com.google.android.gms", name = "play-services-maps", version.ref = "playServicesMaps" }
+secrets-gradle-plugin = { module = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin", version.ref = "secretsGradlePlugin" }
+appcompat-resources = { group = "androidx.appcompat", name = "appcompat-resources", version.ref = "appcompatResources" }
+kotlin-bom = { group = "org.jetbrains.kotlin", name = "kotlin-bom", version.ref = "kotlinBom" }
+places = { group = "com.google.android.libraries.places", name = "places", version.ref = "places" }
+play-services-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "playServicesLocation" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

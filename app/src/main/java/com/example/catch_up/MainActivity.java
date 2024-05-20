@@ -19,14 +19,19 @@ import android.widget.TextView;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
 import com.example.catch_up.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+// utilities
+import android.text.TextUtils;
+import android.util.Log;
+
+// places api
+import com.google.android.libraries.places.api.Places;
 
 import java.util.Objects;
 
@@ -79,6 +84,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+       // Define a variable to hold the Places API key.
+       String apiKey = BuildConfig.PLACES_API_KEY;
+
+       // Log an error if apiKey is not set.
+       if (TextUtils.isEmpty(apiKey) || apiKey.equals("DEFAULT_API_KEY")) {
+          Log.e("Places test", "No api key");
+          finish();
+          return;
+       }
+
+       // Initialize the SDK
+       Places.initializeWithNewPlacesApiEnabled(getApplicationContext(), apiKey);
+
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 

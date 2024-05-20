@@ -26,11 +26,6 @@ google-services.json
 *.jks
 *.keystore
 
-# Logging files
-*.log
-*.tmp
-*.hprof
-
 # Ignore navigation editor temporary files
 .idea/navEditor.xml
 
