@@ -7,15 +7,23 @@ import android.content.pm.PackageManager;
 import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
 
 
 //utility
 import android.util.Log;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
 import androidx.annotation.NonNull;
+
+import android.view.ViewStub;
+import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 //fragments and views
@@ -50,8 +58,11 @@ import com.google.android.gms.maps.GoogleMap.OnMyLocationClickListener;
 
 //places
 import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.PhotoMetadata;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.api.model.RectangularBounds;
+import com.google.android.libraries.places.api.net.FetchPhotoRequest;
+import com.google.android.libraries.places.api.net.FetchPhotoResponse;
 import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.libraries.places.api.net.SearchByTextRequest;
 import com.google.android.gms.maps.CameraUpdate;
@@ -59,6 +70,7 @@ import com.google.android.gms.maps.model.LatLngBounds;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.material.card.MaterialCardView;
 
 
 public class ExploreFragment extends Fragment
@@ -67,7 +79,8 @@ public class ExploreFragment extends Fragment
 		OnMapReadyCallback,
 		OnMyLocationButtonClickListener,
 		OnMyLocationClickListener,
-		GoogleMap.OnMapClickListener
+		GoogleMap.OnMapClickListener,
+		GoogleMap.OnMarkerClickListener
 {
 
 	// utility
@@ -93,7 +106,9 @@ public class ExploreFragment extends Fragment
 			Place.Field.NAME,
 			Place.Field.LAT_LNG,
 			Place.Field.ADDRESS,
-			Place.Field.TYPES);
+			Place.Field.TYPES,
+			Place.Field.EDITORIAL_SUMMARY,
+			Place.Field.PHOTO_METADATAS);
 	private final int MAX_SEARCH_RESULT_COUNT = 10;
 
 	// SearchByTextRequestBuilder only takes 1 setIncludedType
@@ -129,6 +144,8 @@ public class ExploreFragment extends Fragment
 	private final boolean hasCompass = true;
 	private final boolean zoomGestures = true;
 	private final boolean rotateGestures = true;
+
+	private ViewStub placeCardStub;
 
 
 	@Override
@@ -176,6 +193,9 @@ public class ExploreFragment extends Fragment
 		// Initialise search view
 		searchView = view.findViewById(R.id.search_view);
 		searchView.setIconified(false);
+
+		placeCardStub = view.findViewById(R.id.placecard_stub);
+
 		//return view
 		return view;
     }
@@ -256,6 +276,7 @@ public class ExploreFragment extends Fragment
 		 }
 		 map.moveCamera(mapInitCamera);
 		 map.setOnMapClickListener(this);
+		 map.setOnMarkerClickListener(this);
 
 	 }
 
@@ -374,8 +395,8 @@ public class ExploreFragment extends Fragment
 			Log.d(TAG, "Building search text request");
 			return SearchByTextRequest.builder(queryText, placeFields)
 					.setMaxResultCount(MAX_SEARCH_RESULT_COUNT)
-					.setLocationRestriction(getMapBounds(map))
-					.setRankPreference(SearchByTextRequest.RankPreference.DISTANCE)
+					.setLocationBias(getMapBounds(map))
+					.setRankPreference(SearchByTextRequest.RankPreference.RELEVANCE)
 					.build();
 		}
 
@@ -402,6 +423,10 @@ public class ExploreFragment extends Fragment
 							if (!searchResponsePlaces.isEmpty())
 							{
 								map.clear();
+								//move camera to first result
+								CameraUpdate moveToFirst = CameraUpdateFactory.newLatLng(searchResponsePlaces.get(0).getLatLng());
+								map.animateCamera(moveToFirst);
+
 								for (Place place : searchResponsePlaces)
 								{
 									// add marker from place
@@ -409,9 +434,9 @@ public class ExploreFragment extends Fragment
 											.title(place.getName())
 											.position(place.getLatLng())
 											.snippet(place.getAddress());
-									// Marker placeMarker = map.addMarker(placeMarkerOptions);
-									// on marker click show info window
-									// info window contains place values
+									Marker placeMarker = map.addMarker(placeMarkerOptions);
+									placeMarker.setTag(place);
+
 								}
 							}
 							else
@@ -441,6 +466,25 @@ public class ExploreFragment extends Fragment
 	{
 		LatLngBounds mapBounds = googleMap.getProjection().getVisibleRegion().latLngBounds;
 		return RectangularBounds.newInstance(mapBounds);
+	}
+
+	public boolean onMarkerClick(final Marker marker)
+	{
+		Log.d(TAG, "onMarkerClick() triggered");
+		CameraUpdate moveToMarker = CameraUpdateFactory.newLatLng(marker.getPosition());
+		map.animateCamera(moveToMarker);
+
+		if (marker.getTag() == null)
+		{
+			return false;
+		}
+		else
+		{
+			String markerTagDesc = marker.getTag().getClass().toString();
+			Toast.makeText(associatedActivity, markerTagDesc, Toast.LENGTH_SHORT).show();
+			//Log.d(TAG, "Marker contains place object");
+			return true;
+		}
 	}
 
 }

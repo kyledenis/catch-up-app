@@ -23,4 +23,10 @@
         android:iconifiedByDefault="false"
         android:queryHint="@String/explore_map_hint" />
 
+    <ViewStub
+        android:id="@+id/placecard_stub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foregroundGravity="bottom" />
+
 </FrameLayout>
