@@ -21,9 +21,9 @@
         android:id="@+id/search_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="75dp"
         android:background="@color/catchup_grey_light"
-        android:elevation="5dp"
-        android:iconifiedByDefault="false"
-        android:queryHint="@String/explore_map_hint" />
+        android:elevation="3dp"
+        android:queryHint="@string/explore_map_hint" />
 </FrameLayout>
