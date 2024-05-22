@@ -4,7 +4,6 @@
     <string name="explore">Explore</string>
     <string name="saved_lists">Saved Lists</string>
     <string name="explore_map_hint">Search here</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="login">Login</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
@@ -24,5 +23,5 @@
     <string name="list">List</string>
     <string name="location">Location</string>
     <string name="done">Done</string>
-    <string name="select_game_type">Select Game Type:</string>
+    <string name="select_game_type">Select Game Type</string>
 </resources>
