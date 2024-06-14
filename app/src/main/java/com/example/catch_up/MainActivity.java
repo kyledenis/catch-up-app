@@ -29,6 +29,8 @@ import com.google.android.libraries.places.api.Places;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private static final String[] BASIC_PERMISSIONS = {Manifest.permission.INTERNET};
@@ -53,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
         checkPlacesApiKey();
         initPlacesApi();
         askPermissions(BASIC_PERMISSIONS);
+
+        // Request location permissions early
+        askPermissions(LOCATION_PERMISSIONS);
 
         setupUI();
 
@@ -165,9 +170,9 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    private void onPermissionsResult(java.util.Map<String, Boolean> isGranted) {
+    private void onPermissionsResult(Map<String, Boolean> isGranted) {
         if (isGranted.containsValue(false)) {
-            showToast("At least one of the permissions was not granted");
+            showPermissionDeniedDialog();
         }
     }
 
@@ -178,6 +183,15 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return true;
+    }
+
+    private void showPermissionDeniedDialog() {
+        new androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle("Permissions Required")
+                .setMessage("Location permissions are required to use this feature. Please enable them in your device settings.")
+                .setPositiveButton("OK", (dialog, which) -> dialog.dismiss())
+                .create()
+                .show();
     }
 
     private void showToast(String message) {

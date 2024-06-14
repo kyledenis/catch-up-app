@@ -75,7 +75,7 @@ public class ExploreFragment extends Fragment implements
                     enableMapLocationTools();
                     getLastLocation();
                 } else {
-                    showToast("Location permissions currently disabled. Some functions may not work.");
+                    showPermissionDeniedDialog();
                 }
             });
     private PlacesClient placesClient;
@@ -205,6 +205,7 @@ public class ExploreFragment extends Fragment implements
             task.addOnSuccessListener(location -> {
                 if (location != null) {
                     currentLocation = location;
+                    moveToInitialPosition();
                 }
             });
         } catch (SecurityException e) {
@@ -238,6 +239,15 @@ public class ExploreFragment extends Fragment implements
     @Override
     public void onMyLocationClick(@NonNull Location location) {
         showToast("Current location:\n" + location);
+    }
+
+    private void showPermissionDeniedDialog() {
+        new androidx.appcompat.app.AlertDialog.Builder(associatedActivity)
+                .setTitle("Permissions Required")
+                .setMessage("Location permissions are required to use this feature. Please enable them in your device settings.")
+                .setPositiveButton("OK", (dialog, which) -> dialog.dismiss())
+                .create()
+                .show();
     }
 
     private void showToast(String message) {
